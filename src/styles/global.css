@@ -11,9 +11,9 @@ button { color: inherit; }
 img { display: block; max-width: 100%; }
 button:focus-visible, a:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid #00a56c80; outline-offset: 4px; }
 ::selection { background: #c4efdc; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 16px); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-.skip-link { position: fixed; top: -100px; left: 20px; padding: 12px; background: white; z-index: 20; }
+.skip-link { position: fixed; top: -100px; left: 20px; padding: 12px; background: white; z-index: 50; }
 .skip-link:focus { top: 12px; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 26px; border: 1px solid transparent; border-radius: 12px; min-height: 48px; padding: 12px 24px; font-size: .875rem; font-weight: 650; transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
 .button-dark {
