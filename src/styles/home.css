@@ -10,7 +10,7 @@ body {
     var(--background-grid-size) var(--background-grid-size);
 }
 .page-shell { width: min(var(--page-width), calc(100% - 104px)); min-height: 100svh; margin: 0 auto; display: flex; flex-direction: column; }
-.site-header { min-height: 104px; display: flex; align-items: center; gap: 32px; border-bottom: 1px solid #e6eae866; }
+.site-header { min-height: 104px; display: flex; align-items: center; gap: 32px; }
 .brand { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; font-size: 1.45rem; font-weight: 800; letter-spacing: -.9px; }
 .brand img { width: 47px; height: auto; }
 .brand strong { color: var(--green); font-weight: 800; }
