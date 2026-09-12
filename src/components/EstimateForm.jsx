@@ -33,6 +33,10 @@ export default function EstimateForm() {
         <input ref={fileInput} className="sr-only" tabIndex={-1} type="file" id="attachment" onChange={changeFile} />
         {file ? <div className="attached-file"><FileText size={15} /><span title={file.name}>{file.name}</span><button type="button" aria-label="Удалить файл" onClick={() => { setFile(null); fileInput.current.value = ''; setFeedback(''); setSubmitted(false) }}><X size={15} /></button></div> : <><button type="button" className="attach-button" onClick={() => fileInput.current.click()}><Paperclip size={15} />Прикрепить файл</button><span className="optional">до 20 МБ</span></>}
       </div>
+      <label className="consent-label" htmlFor="privacy-consent">
+        <input id="privacy-consent" name="privacyConsent" type="checkbox" required />
+        <span>Согласен на обработку персональных данных</span>
+      </label>
       <button type="submit" className="button button-dark calculate-button">Получить расчёт <ArrowRight size={17} /></button>
       {feedback && <p className={`form-feedback ${submitted ? 'is-prepared' : ''}`} role="status">{feedback}</p>}
       <p className="privacy-note"><LockKeyhole size={12} />Ваши данные в безопасности</p>

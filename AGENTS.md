@@ -2,6 +2,7 @@
 
 ## Scope
 Only the first screen is implemented: header, hero, estimate form, statistics.
+On desktop, the header and hero occupy at least one browser viewport. Statistics begin below that first viewport. Use CSS viewport units rather than physical display resolution.
 Do not add lower sections or routes without the owner's request. Follow the supplied white, green and black reference and preserve the owner's artwork.
 
 ## Structure
@@ -20,6 +21,7 @@ Do not add lower sections or routes without the owner's request. Follow the supp
 - Use the existing React/Vite stack. Do not add a UI framework without a concrete need.
 - Keep the first screen comfortable at 1440×900 and 1366×768; allow natural scrolling on small screens and at text enlargement. Never hide overflow to conceal clipped content.
 - Preserve keyboard navigation, visible focus, labels, native validation and reduced-motion behavior.
+- Personal-data consent is required and unchecked by default. The owner will supply the consent document later; do not invent its contents or a placeholder link.
 - Do not invent contact information or make the form claim an application was sent before a real service is connected.
 - Navigation labels are reserved for later sections; activate each only when its destination exists.
 - Run `npm run lint` and `npm run build` after source changes. Check desktop and mobile layout and affected interactions.

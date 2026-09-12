@@ -15,8 +15,35 @@ html { scroll-behavior: smooth; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .skip-link { position: fixed; top: -100px; left: 20px; padding: 12px; background: white; z-index: 20; }
 .skip-link:focus { top: 12px; }
-.button { display: inline-flex; align-items: center; justify-content: center; gap: 26px; border: 1px solid transparent; border-radius: 12px; min-height: 48px; padding: 12px 24px; font-size: .875rem; font-weight: 650; transition: background .2s, transform .2s, box-shadow .2s; }
-.button-dark { color: white; background: linear-gradient(120deg, #242826, #141615 65%); box-shadow: 0 4px 9px #17211b0d, inset 0 1px 0 #ffffff16; }
-.button-dark:hover { background: var(--green-deep); transform: translateY(-2px); box-shadow: 0 6px 16px #008a5a24; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 26px; border: 1px solid transparent; border-radius: 12px; min-height: 48px; padding: 12px 24px; font-size: .875rem; font-weight: 650; transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
+.button-dark {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: white;
+  background: linear-gradient(120deg, #242826, #141615 65%);
+  box-shadow: 0 4px 9px #17211b0d, inset 0 1px 0 #ffffff16;
+}
+.button-dark::after {
+  content: '';
+  position: absolute;
+  inset: -60% auto -60% -65%;
+  width: 55%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, #c3f6dd10 25%, #ffffff30 50%, #c3f6dd10 75%, transparent);
+  transform: skewX(-22deg) translateX(0);
+}
+@media (hover: hover) and (pointer: fine) {
+  .button-dark:hover {
+    transform: translateY(-1px);
+    border-color: #8bc5a936;
+    box-shadow: 0 8px 22px #123d2925, inset 0 1px 0 #ffffff24;
+  }
+  .button-dark:hover::after {
+    transform: skewX(-22deg) translateX(420%);
+    transition: transform .85s cubic-bezier(.22, .61, .36, 1);
+  }
+}
 .button:active { transform: translateY(0); }
+.button-dark:active { box-shadow: 0 2px 5px #17211b18, inset 0 1px 0 #ffffff16; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
