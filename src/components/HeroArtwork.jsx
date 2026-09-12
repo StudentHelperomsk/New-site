@@ -8,7 +8,5 @@ export default function HeroArtwork() {
     <div className="art-bubble bubble-presentation"><img src="/assets/presentation.svg" alt="" /></div>
     <span className="spark spark-one">+</span><span className="spark spark-two">+</span><span className="spark spark-three">+</span>
     <span className="ring ring-one" /><span className="ring ring-two" />
-    <div className="art-note note-left">Знания открывают<br />возможности <span>↗</span></div>
-    <div className="art-note note-right">Вместе<br />к твоим целям <span>♡</span></div>
   </div>
 }

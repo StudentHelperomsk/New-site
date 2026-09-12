@@ -13,7 +13,6 @@ export default function Hero({ onOrder }) {
         <button className="button button-dark hero-order" onClick={onOrder}>Заказать работу <ArrowRight size={19} /></button>
         <a className="learn-more" href="#statistics">Узнать больше <span><ArrowRight size={14} /></span></a>
       </div>
-      <div className="hero-footnote"><span className="tiny-line" /> Сложные задачи. Понятные решения.</div>
     </div>
     <HeroArtwork />
   </section>

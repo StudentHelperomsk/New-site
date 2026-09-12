@@ -6,7 +6,7 @@ import StatsBar from '../components/StatsBar'
 export default function App() {
   const focusEstimate = () => {
     document.getElementById('estimate').scrollIntoView({ behavior: 'smooth', block: 'center' })
-    document.getElementById('work-type').focus({ preventScroll: true })
+    document.getElementById('description').focus({ preventScroll: true })
   }
   return <>
     <a className="skip-link" href="#main">Перейти к содержанию</a>

@@ -7,7 +7,7 @@ Do not add lower sections or routes without the owner's request. Follow the supp
 ## Structure
 - `src/app/App.jsx`: page composition.
 - `src/components/`: small semantic components; form state stays in EstimateForm.
-- `src/content/home.js`: navigation, work categories, benefits, statistics.
+- `src/content/home.js`: navigation, benefits, statistics.
 - `src/styles/tokens.css`: shared design tokens.
 - `src/styles/global.css`: fonts, reset, accessible shared controls.
 - `src/styles/home.css`: first-screen layout and responsive styles.
