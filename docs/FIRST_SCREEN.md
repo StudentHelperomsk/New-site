@@ -1,34 +1,17 @@
-# First screen implementation note
+# Первый экран
 
-## Reference interpretation
+## Визуальная система
+Белый фон с лёгким мятным свечением, зелёный акцент, Manrope, тёмные CTA, мягкая геометрия карточек. На широком экране слева текст, в центре авторская композиция из иконок владельца, справа форма. Внизу полоса статистики. На планшете форма занимает всю ширину, на телефоне блоки выстраиваются вертикально.
 
-The current desktop composition mirrors the supplied reference rather than the old Student Helper site:
+## Поведение
+- «Заказать работу» перемещает пользователя к форме и фокусирует выбор типа работы.
+- «Узнать больше» ведёт к показателям сервиса.
+- Мобильное меню раскрывает будущую навигацию. Разделы пока представлены неактивными текстовыми пунктами, без пустых ссылок.
+- Тип и описание обязательны. Файл необязателен, ограничен 20 МБ, доступно удаление выбранного файла.
+- После проверки полей показывается честное сообщение о неподключённой отправке. Данные не сохраняются и не отправляются.
 
-- compact white header with wordmark on the left, centered navigation and CTA on the right;
-- large two-line headline on the left with green emphasis on `студентам`;
-- supporting copy, three compact trust points and two actions;
-- visual focus in the center;
-- white estimate card on the right;
-- four-column stats strip anchored to the bottom of the viewport.
+## Следующий этап
+Получить реальные контакты и подтвердить статистику. Согласовать адрес API или интеграцию с ботом, способ связи с заявителем и правила работы с файлами. Только после этого включать отправку. Нижние разделы добавлять по отдельному запросу.
 
-## Asset strategy for this iteration
-
-The owner will provide the actual SVG/icon pack later. For now:
-
-- no external icon library is used;
-- the brand mark and central hero illustration are deliberately simple CSS placeholders;
-- stats icons are geometric placeholders;
-- all placeholder visuals are isolated in CSS so they can be swapped without disturbing layout.
-
-## Viewport behavior
-
-At desktop widths above 980px, the page is intentionally a single viewport with no vertical scroll. The hero compresses slightly for short desktop screens.
-
-At tablet/mobile widths, the content becomes a normal vertical flow and scrolling is enabled. This prevents the one-screen constraint from making the form unusable on small devices.
-
-## Next pass after SVG delivery
-
-1. Add supplied SVGs to `src/assets/brand`, `src/assets/hero`, and `src/assets/icons`.
-2. Replace temporary CSS brand/hero/stat geometry component-by-component.
-3. Re-tune exact dimensions/offsets against the reference at the target desktop resolution.
-4. Only after the first screen is approved, start the sections below it.
+## Исходники
+Из предоставленного ZIP использованы coursework, analytics, flask, diploma и presentation. Логотип предоставлен отдельным SVG. Шрифт Manrope используется локально с OFL-лицензией.

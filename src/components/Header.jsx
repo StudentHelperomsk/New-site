@@ -1,30 +1,18 @@
-const navItems = ['Услуги', 'Примеры работ', 'Как мы работаем', 'Отзывы', 'О нас', 'Контакты']
+import { Menu, X } from 'lucide-react'
+import { useState } from 'react'
+import { navigation } from '../content/home'
 
-export default function Header() {
-  return (
-    <header className="site-header">
-      <div className="site-header__inner">
-        <a className="brand" href="#top" aria-label="Student Helper">
-          <span className="brand__mark" aria-hidden="true">
-            <span className="brand__cap" />
-            <span className="brand__stem" />
-          </span>
-          <span className="brand__name">Student <strong>Helper</strong></span>
-        </a>
-
-        <nav className="site-nav" aria-label="Основная навигация">
-          {navItems.map((item) => (
-            <a href={`#${item.toLowerCase().replaceAll(' ', '-')}`} key={item}>
-              {item}
-            </a>
-          ))}
-        </nav>
-
-        <div className="site-header__actions">
-          <a className="header-phone" href="tel:+79991234567">+7 (999) 123-45-67</a>
-          <a className="button button--dark button--header" href="#estimate">Заказать работу</a>
-        </div>
-      </div>
-    </header>
-  )
+export default function Header({ onOrder }) {
+  const [menuOpen, setMenuOpen] = useState(false)
+  return <header className="site-header">
+    <a className="brand" href="#top" aria-label="Student Helper — главная">
+      <img src="/assets/logo.svg" alt="" width="49" height="32" />
+      <span>Student <strong>Helper</strong></span>
+    </a>
+    <nav className={`site-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Основная навигация" id="main-nav">
+      {navigation.map(item => <span key={item} className="nav-item" aria-disabled="true" title="Раздел появится на следующем этапе">{item}</span>)}
+    </nav>
+    <button className="button button-dark header-order" onClick={onOrder}>Заказать работу</button>
+    <button className="menu-toggle" aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'} aria-expanded={menuOpen} aria-controls="main-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>
+  </header>
 }

@@ -1,44 +1,25 @@
-# Student Helper — New Site
+# Student Helper
 
-Clean rebuild of the Student Helper public website.
+Первый экран сайта: шапка, главный блок, иллюстрация из предоставленных иконок, форма оценки и показатели сервиса. React + Vite, без UI-фреймворка.
 
-## Current state
+## Запуск
+Node.js 22.12+ или актуальная LTS-версия.
 
-The repository currently contains only the first viewport from the supplied design reference: header, hero copy, temporary CSS hero visual, estimate form and stats strip. Final SVG/icon assets are not connected yet.
-
-## Run locally
-
-```bash
-npm install
+```sh
+npm ci
 npm run dev
 ```
 
-Production check:
+Локальный адрес выводит Vite (по умолчанию http://127.0.0.1:5173).
 
-```bash
-npm run build
+```sh
 npm run lint
+npm run build
+npm run preview
 ```
 
-## Project map
+Структура и правила: [AGENTS.md](AGENTS.md). Состояние текущего этапа: [docs/FIRST_SCREEN.md](docs/FIRST_SCREEN.md).
 
-```text
-src/
-  app/
-    App.jsx
-  components/
-    Header.jsx
-    Hero.jsx
-    StatsBar.jsx
-  styles/
-    tokens.css
-    global.css
-    home.css
-  assets/
-    README.md
-docs/
-  FIRST_SCREEN.md
-AGENTS.md
-```
+Форма проверяет поля, позволяет выбрать и удалить файл до 20 МБ. Серверная отправка ещё не подключена; интерфейс сообщает об этом после проверки задания. Значения статистики перенесены из референса и требуют подтверждения владельца перед публичным запуском. Телефон из макета не использован, поскольку это пример номера.
 
-Before making changes, read `AGENTS.md` and the relevant note in `docs/`.
+Вспомогательные материалы находятся в `operation/` и не попадают в Git.

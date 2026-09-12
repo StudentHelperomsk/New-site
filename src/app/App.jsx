@@ -1,17 +1,21 @@
 import Header from '../components/Header'
 import Hero from '../components/Hero'
+import EstimateForm from '../components/EstimateForm'
 import StatsBar from '../components/StatsBar'
 
 export default function App() {
-  return (
-    <main className="page-shell">
-      <div className="page-glow page-glow--left" aria-hidden="true" />
-      <div className="page-glow page-glow--right" aria-hidden="true" />
-      <Header />
-      <section className="home-screen" aria-label="Главный экран Student Helper">
-        <Hero />
+  const focusEstimate = () => {
+    document.getElementById('estimate').scrollIntoView({ behavior: 'smooth', block: 'center' })
+    document.getElementById('work-type').focus({ preventScroll: true })
+  }
+  return <>
+    <a className="skip-link" href="#main">Перейти к содержанию</a>
+    <div className="page-shell" id="top">
+      <Header onOrder={focusEstimate} />
+      <main id="main">
+        <div className="hero-layout"><Hero onOrder={focusEstimate} /><EstimateForm /></div>
         <StatsBar />
-      </section>
-    </main>
-  )
+      </main>
+    </div>
+  </>
 }

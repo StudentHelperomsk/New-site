@@ -1,22 +1,17 @@
 :root {
-  --bg: #fbfdfc;
-  --surface: rgba(255, 255, 255, 0.86);
-  --surface-solid: #ffffff;
-  --surface-muted: #f5f8f6;
-  --text: #111512;
-  --text-soft: #626964;
-  --text-faint: #8b928d;
-  --green: #0aa366;
-  --green-dark: #087f51;
-  --green-soft: #e5f7ef;
-  --green-softer: #f1fbf6;
-  --line: #e5ebe7;
-  --line-strong: #d8e1db;
-  --shadow: 0 22px 70px rgba(24, 54, 37, 0.08);
-  --shadow-card: 0 18px 48px rgba(31, 58, 43, 0.09);
-  --radius-sm: 12px;
-  --radius-md: 18px;
-  --radius-lg: 26px;
-  --container: 1416px;
-  --header-height: 88px;
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  color: #171a19;
+  background: #fbfdfc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --green: #00a56c;
+  --green-deep: #008a5a;
+  --ink: #171a19;
+  --muted: #747b80;
+  --line: #e6eae8;
+  --mint: #eaf7f1;
+  --surface: #f5f7f6;
+  --radius: 24px;
+  --page-width: 1440px;
 }

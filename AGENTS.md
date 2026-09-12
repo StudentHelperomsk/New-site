@@ -1,53 +1,29 @@
-# AGENTS.md
+# Student Helper
 
-## Project goal
+## Scope
+Only the first screen is implemented: header, hero, estimate form, statistics.
+Do not add lower sections or routes without the owner's request. Follow the supplied white, green and black reference and preserve the owner's artwork.
 
-This repository is the clean rebuild of the Student Helper public website.
-The visual reference is supplied by the owner. Work iteratively and preserve a clean, easy-to-navigate codebase.
+## Structure
+- `src/app/App.jsx`: page composition.
+- `src/components/`: small semantic components; form state stays in EstimateForm.
+- `src/content/home.js`: navigation, work categories, benefits, statistics.
+- `src/styles/tokens.css`: shared design tokens.
+- `src/styles/global.css`: fonts, reset, accessible shared controls.
+- `src/styles/home.css`: first-screen layout and responsive styles.
+- `public/assets/`: production artwork and self-hosted fonts.
+- `docs/FIRST_SCREEN.md`: implementation decisions and integration status.
 
-## Current milestone
+## Working rules
+- Put screenshots, scripts, source archives and all disposable work in `operation/` (gitignored).
+- Keep production files outside operation. Never commit credentials, .env files, node_modules or build output.
+- Use the existing React/Vite stack. Do not add a UI framework without a concrete need.
+- Keep the first screen comfortable at 1440×900 and 1366×768; allow natural scrolling on small screens and at text enlargement. Never hide overflow to conceal clipped content.
+- Preserve keyboard navigation, visible focus, labels, native validation and reduced-motion behavior.
+- Do not invent contact information or make the form claim an application was sent before a real service is connected.
+- Navigation labels are reserved for later sections; activate each only when its destination exists.
+- Run `npm run lint` and `npm run build` after source changes. Check desktop and mobile layout and affected interactions.
+- Keep the lockfile committed and use `npm ci` for reproducible installation.
 
-Only the first viewport / hero screen is in scope right now.
-Do not start building the sections below the first screen unless explicitly requested.
-
-The desktop first screen should:
-- visually follow the supplied reference: light background, black/green typography, compact header, large left hero copy, central visual zone, estimate form on the right, stats strip at the bottom;
-- fit into one viewport on normal desktop/laptop screens without vertical scrolling;
-- remain usable responsively; below 980px vertical scrolling is allowed;
-- avoid hard dependency on final SVG assets until the owner provides them.
-
-## Source structure
-
-- `src/app/App.jsx` — top-level page composition only.
-- `src/components/` — reusable page pieces. Keep components small and semantic.
-- `src/styles/tokens.css` — colors, radii, container widths, reusable design constants.
-- `src/styles/global.css` — reset and truly global primitives only.
-- `src/styles/home.css` — current first-screen layout and component styling.
-- `src/assets/` — future local visual assets. SVGs supplied by the owner should live here, grouped by purpose.
-- `docs/` — implementation notes and visual decisions that future agents need.
-
-## Editing rules
-
-1. Read this file before changing the project.
-2. Prefer editing an existing component/style file over creating a duplicate variant.
-3. Do not introduce a UI framework or component library unless explicitly requested.
-4. Do not replace the hand-tuned hero layout with generic template sections.
-5. Keep text content separate from visual asset implementation where practical.
-6. When final SVG icons arrive, replace CSS placeholders with the supplied assets without redesigning the layout around them.
-7. Keep desktop `body` non-scrollable while this milestone is only one viewport. If a later section is added, remove that restriction as part of the same change.
-8. Do not add animations merely for decoration. Motion should be subtle and intentional.
-9. Use CSS variables from `tokens.css` rather than scattering new brand colors through component styles.
-10. After structural changes, verify at least `npm run build` and `npm run lint`.
-
-## Visual priorities
-
-When trade-offs are necessary, preserve these in order:
-1. overall composition and whitespace;
-2. headline size/line breaks and form placement;
-3. header density;
-4. stats strip position at the bottom of the viewport;
-5. decorative details.
-
-## Pending assets
-
-Final logo/brand SVGs and hero/service icons are intentionally not wired yet. Temporary CSS geometry is acceptable only as a layout placeholder and should be easy to remove once source assets arrive.
+## Assets
+SVGs come from the owner. Some contain embedded raster artwork: do not assume they are pure vectors. The coursework SVG viewBox was tightened to remove transparent export margins; the artwork is preserved.
