@@ -20,10 +20,20 @@ html { scroll-behavior: smooth; }
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  border-radius: 9px 18px 9px 18px;
+  border-radius: 12px;
   color: white;
   background: linear-gradient(120deg, #242826, #141615 65%);
   box-shadow: 0 4px 9px #17211b0d, inset 0 1px 0 #ffffff16;
+}
+.button-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--green-deep);
+  opacity: 0;
+  transition: opacity .3s ease;
 }
 .button-dark::after {
   content: '';
@@ -40,6 +50,7 @@ html { scroll-behavior: smooth; }
     border-color: #8bc5a936;
     box-shadow: 0 8px 22px #123d2925, inset 0 1px 0 #ffffff24;
   }
+  .button-dark:hover::before { opacity: 1; }
   .button-dark:hover::after {
     transform: skewX(-22deg) translateX(420%);
     transition: transform .85s cubic-bezier(.22, .61, .36, 1);
