@@ -20,6 +20,7 @@ html { scroll-behavior: smooth; }
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  border: 0;
   border-radius: 12px;
   color: white;
   background: linear-gradient(120deg, #242826, #141615 65%);
@@ -47,7 +48,6 @@ html { scroll-behavior: smooth; }
 @media (hover: hover) and (pointer: fine) {
   .button-dark:hover {
     transform: translateY(-1px);
-    border-color: #8bc5a936;
     box-shadow: 0 8px 22px #123d2925, inset 0 1px 0 #ffffff24;
   }
   .button-dark:hover::before { opacity: 1; }
