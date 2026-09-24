@@ -18,7 +18,7 @@ export default function Header({ onOrder }) {
       <span>Student <strong>Helper</strong></span>
     </a>
     <nav className={`site-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Основная навигация" id="main-nav">
-      {navigation.map(item => <span key={item} className="nav-item" aria-disabled="true" title="Раздел появится на следующем этапе">{item}</span>)}
+      {navigation.map(item => <a key={item.href} className="nav-item" href={item.href} onClick={() => setMenuOpen(false)}>{item.label}</a>)}
     </nav>
     <button className="button button-dark header-order" onClick={() => { setMenuOpen(false); onOrder() }}>Заказать работу</button>
     <button className="menu-toggle" aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'} aria-expanded={menuOpen} aria-controls="main-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>

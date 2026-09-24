@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { ArrowRight, FileText, LockKeyhole, Paperclip, X } from 'lucide-react'
 
-export default function EstimateForm() {
+export default function EstimateForm({ description, onDescriptionChange }) {
   const [file, setFile] = useState(null)
   const [feedback, setFeedback] = useState('')
   const [submitted, setSubmitted] = useState(false)
@@ -25,10 +25,10 @@ export default function EstimateForm() {
   }
   return <aside className="estimate-card" id="estimate" aria-labelledby="estimate-title">
     <div className="form-topline"><span className="form-step">01 / ПЕРВЫЙ ШАГ</span><span className="form-time">≈ 15 минут</span></div>
-    <h2 id="estimate-title">Узнайте стоимость<br />вашей работы</h2>
+    <h2 id="estimate-title">Узнайте стоимость<br /> вашей работы</h2>
     <form onSubmit={submit} onChange={() => { if (submitted) { setSubmitted(false); setFeedback('') } }}>
       <label htmlFor="description">Опишите ваше задание</label>
-      <textarea id="description" name="description" placeholder="Тема, требования и желаемый срок" maxLength={3000} required rows={3} />
+      <textarea id="description" name="description" placeholder="Тема, требования и желаемый срок" value={description} onChange={event => onDescriptionChange(event.target.value)} maxLength={3000} required rows={3} />
       <div className="attachment-row">
         <input ref={fileInput} className="sr-only" tabIndex={-1} type="file" id="attachment" onChange={changeFile} />
         {file ? <div className="attached-file"><FileText size={15} /><span title={file.name}>{file.name}</span><button type="button" aria-label="Удалить файл" onClick={() => { setFile(null); fileInput.current.value = ''; setFeedback(''); setSubmitted(false) }}><X size={15} /></button></div> : <><button type="button" className="attach-button" onClick={() => fileInput.current.click()}><Paperclip size={15} />Прикрепить файл</button><span className="optional">до 20 МБ</span></>}

@@ -1,8 +1,15 @@
-export const navigation = ['Услуги', 'Примеры работ', 'Как мы работаем', 'Отзывы', 'О нас', 'Контакты']
+export const navigation = [
+  { label: 'Услуги', href: '#services' },
+  { label: 'Примеры работ', href: '#examples' },
+  { label: 'Как мы работаем', href: '#process' },
+  { label: 'Отзывы', href: '#reviews' },
+  { label: 'Вопросы', href: '#faq' },
+  { label: 'Контакты', href: '#contacts' },
+]
 export const benefits = ['Быстрая оценка задания', 'Бесплатные доработки до полной сдачи', 'Чёткое соблюдение сроков']
 export const statistics = [
-  { icon: 'users', value: '3 500+', label: 'довольных студентов' },
-  { icon: 'cap', value: '98%', label: 'работ сданы в срок' },
-  { icon: 'star', value: '4.9', label: 'средняя оценка сервиса' },
-  { icon: 'shield', value: '5 лет', label: 'помогаем студентам' },
+  { icon: 'users', value: '1 000+', label: 'выполненных работ' },
+  { icon: 'cap', value: 'С 2020', label: 'помогаем студентам' },
+  { icon: 'star', value: 'Поэтапно', label: 'оплата по согласованию' },
+  { icon: 'shield', value: 'Доработки', label: 'по исходному заданию' },
 ]
