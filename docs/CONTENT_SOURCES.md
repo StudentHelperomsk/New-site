@@ -23,3 +23,6 @@
 
 ## Проверка
 Сборка и ESLint. В браузере: переходы по меню, выбор услуги с заполнением пустого описания, открытие/закрытие примера, ссылка на исходный PDF, раскрытие FAQ и закрепление шапки. Адаптивные сетки: четыре колонки на широком экране, две для услуг и одна для галереи на телефоне.
+
+## Service presentation update
+Services now use four switchable featured directions; all eight services remain available. Portfolio shows two larger real previews per page, with the existing PDF dialog. The owner confirmed unlimited free revisions within the original assignment until submission; changed requirements are discussed individually and a new assignment is priced separately.
