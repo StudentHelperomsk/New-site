@@ -4,5 +4,7 @@ import App from './app/App'
 import './styles/tokens.css'
 import './styles/global.css'
 import './styles/home.css'
+import './styles/hero.css'
+import './styles/estimate-dialog.css'
 
 createRoot(document.getElementById('root')).render(<StrictMode><App /></StrictMode>)

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
-import EstimateForm from '../components/EstimateForm'
+import EstimateDialog from '../components/EstimateDialog'
 import StatsBar from '../components/StatsBar'
 import ServicesSection from '../components/landing/ServicesSection'
 import ExamplesSection from '../components/landing/ExamplesSection'
@@ -14,28 +14,29 @@ import '../styles/landing.css'
 
 export default function App() {
   const [description, setDescription] = useState('')
-  const focusEstimate = (service) => {
+  const [estimateOpen, setEstimateOpen] = useState(false)
+  const openEstimate = (service) => {
     if (typeof service === 'string') setDescription(current => current.trim() ? current : `Нужна помощь: ${service.toLowerCase()}. `)
-    document.getElementById('estimate').scrollIntoView({ behavior: 'smooth', block: 'center' })
-    document.getElementById('description').focus({ preventScroll: true })
+    setEstimateOpen(true)
   }
   return <>
     <a className="skip-link" href="#main">Перейти к содержанию</a>
     <div className="page-shell" id="top">
-      <Header onOrder={focusEstimate} />
+      <Header onOrder={openEstimate} />
       <main id="main">
-        <div className="hero-layout"><Hero onOrder={focusEstimate} /><EstimateForm description={description} onDescriptionChange={setDescription} /></div>
+        <div className="hero-layout"><Hero onOrder={openEstimate} /></div>
         <StatsBar />
         <div className="landing-content">
-          <ProcessSection onOrder={focusEstimate} />
-          <ServicesSection onSelect={focusEstimate} />
+          <ProcessSection onOrder={openEstimate} />
+          <ServicesSection onSelect={openEstimate} />
           <ExamplesSection />
           <ReviewsSection />
           <FaqSection />
-          <ContactSection onOrder={focusEstimate} />
+          <ContactSection onOrder={openEstimate} />
         </div>
       </main>
       <Footer />
     </div>
+    <EstimateDialog open={estimateOpen} onClose={() => setEstimateOpen(false)} description={description} onDescriptionChange={setDescription} />
   </>
 }

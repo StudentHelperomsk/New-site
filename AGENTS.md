@@ -3,17 +3,20 @@
 ## Scope
 The home page includes the approved hero, statistics, services and prices, work examples, process and assurances, reviews, FAQ, contact CTA and footer.
 On desktop, the header and hero occupy at least one browser viewport. Statistics begin below that first viewport. Use CSS viewport units rather than physical display resolution.
-The owner authorized continuing the landing page with content from studenthelper.ru. Preserve the approved hero and the white, green and black visual direction. Additional routes and backend integration remain separate work.
+The owner authorized continuing the landing page with content from studenthelper.ru, then moving the estimate form into a dialog and animating the hero artwork. Preserve the white, green and black visual direction. Additional routes and backend integration remain separate work.
 
 ## Structure
 - `src/app/App.jsx`: page composition.
 - `src/components/`: small semantic components; form state stays in EstimateForm.
+- `src/components/EstimateDialog.jsx`: shared native order dialog; opening must preserve the page position, closing must preserve the draft and return focus to the trigger.
 - `src/components/landing/`: below-the-fold sections and the shared section heading.
 - The task description is lifted into App so choosing a service can prefill an empty draft without overwriting user input.
 - `src/content/home.js`: navigation, benefits, statistics.
 - `src/styles/tokens.css`: shared design tokens.
 - `src/styles/global.css`: fonts, reset, accessible shared controls.
-- `src/styles/home.css`: first-screen layout and responsive styles.
+- `src/styles/home.css`: header, form controls and statistics.
+- `src/styles/hero.css`: first-screen layout, floating artwork and responsive styles.
+- `src/styles/estimate-dialog.css`: order dialog and backdrop.
 - `src/styles/landing.css`: new landing sections and their responsive styles.
 - `src/content/landing.js`: service prices, work examples, reviews, FAQ and manager URL.
 - `src/content/support.js`: three support chapters and optional replacement artwork paths.
@@ -28,6 +31,7 @@ The owner authorized continuing the landing page with content from studenthelper
 - Use the existing React/Vite stack. Do not add a UI framework without a concrete need.
 - Keep the first screen comfortable at 1440×900 and 1366×768; allow natural scrolling on small screens and at text enlargement. Never hide overflow to conceal clipped content.
 - Preserve keyboard navigation, visible focus, labels, native validation and reduced-motion behavior.
+- Hero motion pauses offscreen, when the tab is hidden and while a dialog is open. Cursor movement only affects fine pointers and respects reduced-motion preferences.
 - Personal-data consent is required and unchecked by default. The owner will supply the consent document later; do not invent its contents or a placeholder link.
 - Do not invent contact information or make the form claim an application was sent before a real service is connected.
 - Navigation links must target existing sections. Work previews use a native dialog with Escape/focus handling and link to real PDFs on the source site.

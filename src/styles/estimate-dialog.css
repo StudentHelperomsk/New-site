@@ -1,0 +1,32 @@
+html { scrollbar-gutter: stable; }
+.estimate-dialog { width: min(460px, calc(100% - 32px)); max-width: none; max-height: calc(100dvh - 40px); margin: auto; padding: 0; border: 1px solid #e7eee9; border-radius: 26px; background: #fff; color: var(--ink); box-shadow: 0 30px 100px #112e2833; overscroll-behavior: contain; }
+.estimate-dialog[open] { animation: estimate-arrive .28s ease-out; }
+.estimate-dialog::backdrop { background: #162c2366; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); animation: estimate-backdrop .28s ease-out; }
+.estimate-close { position: absolute; top: 15px; right: 15px; z-index: 5; display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%; background: #f1f6f2; color: #62766a; transition: background .2s, color .2s; }
+.estimate-close:hover { background: #e0f1e7; color: #008a5a; }
+.estimate-dialog .estimate-card { padding: 35px; border: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.estimate-dialog .estimate-card::before { display: none; }
+.estimate-dialog .form-topline { margin: 0 38px 25px 0; gap: 12px; }
+.estimate-dialog .form-step { font-size: .61rem; }
+.estimate-dialog .form-time { font-size: .67rem; white-space: nowrap; }
+.estimate-dialog h2 { font-size: 1.85rem; line-height: 1.22; margin-bottom: 28px; outline: none; }
+.estimate-dialog h2 br { display: block; }
+.estimate-dialog label { font-size: .81rem; }
+.estimate-dialog textarea { height: 120px; min-height: 105px; font-size: 1rem; }
+.estimate-dialog .attach-button { font-size: .77rem; min-height: 42px; }
+.estimate-dialog .optional { font-size: .7rem; }
+.estimate-dialog .attachment-row { margin: 13px 0 23px; }
+.estimate-dialog .consent-label { margin-bottom: 23px; font-size: .76rem; }
+.estimate-dialog .calculate-button { min-height: 51px; font-size: .86rem; }
+.estimate-dialog .privacy-note { font-size: .65rem; }
+@keyframes estimate-arrive { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes estimate-backdrop { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 480px) {
+  .estimate-dialog { width: calc(100% - 24px); max-height: calc(100dvh - 24px); border-radius: 22px; }
+  .estimate-dialog .estimate-card { padding: 28px 23px; }
+  .estimate-dialog h2 { font-size: 1.65rem; }
+  .estimate-dialog .form-topline { margin-right: 30px; gap: 8px; }
+  .estimate-dialog .form-step { font-size: .55rem; }
+  .estimate-dialog .form-time { font-size: .6rem; }
+  .estimate-close { top: 12px; right: 10px; width: 36px; height: 36px; }
+}
