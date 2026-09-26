@@ -22,7 +22,7 @@
 .support-chapter-number { font-size: .78rem; color: var(--green-deep); font-weight: 650; display: flex; align-items: center; gap: 16px; }
 .support-chapter-number > span { color: #758679; font-weight: 500; }
 .support-chapter h3 { font-size: clamp(1.9rem, 3vw, 2.8rem); letter-spacing: -1.6px; line-height: 1.2; margin: 22px 0; font-weight: 700; max-width: 440px; }
-.support-chapter > p { font-size: 1rem; line-height: 1.85; margin: 0; max-width: 430px; color: #64736a; }
+.support-chapter-copy > p { font-size: 1rem; line-height: 1.85; margin: 0; max-width: 430px; color: #64736a; }
 .support-chapter-note { display: flex; gap: 9px; align-items: flex-start; font-size: .81rem; color: #628471; line-height: 1.7; margin-top: 24px; max-width: 380px; }
 .support-chapter-note > svg { flex-shrink: 0; margin-top: 3px; }
 .support-chapter .text-action { align-self: flex-start; margin-top: 22px; }
@@ -47,7 +47,7 @@
   .support-chapter { display: none; min-height: 360px; padding: 30px 0; }
   .support-chapter.is-active { display: flex; }
   .support-chapter h3 { font-size: 2rem; }
-  .support-chapter > p { font-size: .9rem; }
+  .support-chapter-copy > p { font-size: .9rem; }
   .support-guarantee { margin-top: 45px; padding: 26px; }
   .support-scene-label { padding: 0; font-size: .56rem; }
 }
@@ -63,7 +63,7 @@
   .support-switcher button { padding: 11px 10px; font-size: .7rem; }
   .support-chapter { min-height: 355px; padding: 30px 8px 10px; justify-content: flex-start; }
   .support-chapter h3 { margin: 17px 0; font-size: 1.9rem; letter-spacing: -1px; }
-  .support-chapter > p { font-size: .94rem; line-height: 1.75; }
+  .support-chapter-copy > p { font-size: .94rem; line-height: 1.75; }
   .support-guarantee { padding: 25px; margin-top: 24px; flex-wrap: wrap; gap: 18px; border-radius: 20px 50px 20px 20px; }
   .support-guarantee > span:first-child { flex-basis: 100%; font-size: .74rem; }
   .support-guarantee p { font-size: 1.03rem; letter-spacing: -.25px; }

@@ -8,6 +8,8 @@ The support story follows the first screen and statistics. On viewports at least
 
 Smaller or shorter viewports show one chapter at a time with the same stage buttons. Reduced-motion preferences disable graphic transitions and smooth chapter navigation.
 
+The transition from the hero keeps the original spacing. Statistics enter with a 70ms stagger, the support heading enters by line, then the illustration and chapter text enter independently. Entrances start near the bottom edge of the viewport and run once. The illustration entrance wraps the sticky container's contents so sticky positioning is unaffected. Reduced motion, keyboard focus and printing make content visible immediately; content already in view on initial load is never hidden. The shared hook is `src/hooks/useScrollReveal.js`, with motion in `src/styles/reveal.css`.
+
 Services remain selectable and prefill only an empty estimate draft. Reviews use the original screenshots in a shared conversational composition. The approved hero, consent checkbox, PDF previews and contacts are preserved.
 
 ## Replacing the artwork

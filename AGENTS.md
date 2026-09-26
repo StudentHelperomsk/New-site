@@ -17,6 +17,7 @@ The owner authorized continuing the landing page with content from studenthelper
 - `src/styles/home.css`: header, form controls and statistics.
 - `src/styles/hero.css`: first-screen layout, floating artwork and responsive styles.
 - `src/styles/estimate-dialog.css`: order dialog and backdrop.
+- `src/hooks/useScrollReveal.js` and `src/styles/reveal.css`: once-only entrances for statistics, support chapters and service/example headings. Use explicit `data-reveal` targets; never transform sticky containers or hide initially visible content.
 - `src/styles/landing.css`: new landing sections and their responsive styles.
 - `src/content/landing.js`: service prices, work examples, reviews, FAQ and manager URL.
 - `src/content/support.js`: three support chapters and optional replacement artwork paths.

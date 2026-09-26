@@ -6,5 +6,6 @@ import './styles/global.css'
 import './styles/home.css'
 import './styles/hero.css'
 import './styles/estimate-dialog.css'
+import './styles/reveal.css'
 
 createRoot(document.getElementById('root')).render(<StrictMode><App /></StrictMode>)

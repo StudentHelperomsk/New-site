@@ -17,7 +17,7 @@ export default function ServicesSection({ onSelect }) {
   return <section className="landing-section services-section" id="services" aria-labelledby="services-title">
     <SectionHeading id="services-title" eyebrow="С ЧЕМ ПОМОЖЕМ" title={<>Теперь —<br /><em>к вашей задаче.</em></>} description="От отдельного расчёта до дипломного проекта. Выберите, что сейчас нужно вам." />
     <div className="service-explorer">
-      <div className="service-choices">
+      <div className="service-choices" data-reveal="copy">
         <div className="service-list" aria-label="Выберите направление">
           {directions.map((item, index) => <button key={item.index} type="button" className="service-choice" aria-pressed={active === index} aria-controls="service-detail" onClick={() => setActive(index)}>
             <span className="service-number">0{index + 1}</span><span>{services[item.index].title}</span><ArrowUpRight size={23} aria-hidden="true" />
@@ -25,7 +25,7 @@ export default function ServicesSection({ onSelect }) {
         </div>
         <button type="button" className="service-help" onClick={() => onSelect()}><MessagesSquare size={21} aria-hidden="true" /><span>Не знаете, с чего начать?<br /><strong>Разберёмся вместе.</strong></span><ArrowRight size={18} aria-hidden="true" /></button>
       </div>
-      <div className="service-stage" id="service-detail" aria-live="polite">
+      <div className="service-stage" id="service-detail" aria-live="polite" data-reveal="scene">
         <div className="service-stage-top"><span>{direction.caption}</span><span>0{active + 1} / 04</span></div>
         <div className="service-detail-content" key={service.icon}>
           <img className="service-detail-mark" src={`/assets/${direction.artwork}.svg`} alt="" width="76" height="76" />

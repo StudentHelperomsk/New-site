@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import useScrollReveal from '../hooks/useScrollReveal'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import EstimateDialog from '../components/EstimateDialog'
@@ -13,6 +14,8 @@ import Footer from '../components/landing/Footer'
 import '../styles/landing.css'
 
 export default function App() {
+  const content = useRef(null)
+  useScrollReveal(content)
   const [description, setDescription] = useState('')
   const [estimateOpen, setEstimateOpen] = useState(false)
   const openEstimate = (service) => {
@@ -23,7 +26,7 @@ export default function App() {
     <a className="skip-link" href="#main">Перейти к содержанию</a>
     <div className="page-shell" id="top">
       <Header onOrder={openEstimate} />
-      <main id="main">
+      <main id="main" ref={content}>
         <div className="hero-layout"><Hero onOrder={openEstimate} /></div>
         <StatsBar />
         <div className="landing-content">

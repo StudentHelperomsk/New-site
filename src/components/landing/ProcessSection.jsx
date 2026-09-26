@@ -43,23 +43,27 @@ export default function ProcessSection({ onOrder }) {
   }
 
   return <section className="support-story" id="process" ref={section} aria-labelledby="process-title">
-    <div className="support-heading"><span className="support-eyebrow">НА ВАШЕЙ СТОРОНЕ</span><h2 id="process-title">С задачей можно<br />не оставаться <em>один на один.</em></h2><p>Внимание к работе.<br />И к человеку за ней.</p></div>
+    <div className="support-heading"><span className="support-eyebrow" data-reveal="copy">НА ВАШЕЙ СТОРОНЕ</span><h2 id="process-title"><span className="support-title-line" data-reveal="line">С задачей можно</span><span className="support-title-line" data-reveal="line">не оставаться <em>один на один.</em></span></h2><p data-reveal="copy">Внимание к работе.<br />И к человеку за ней.</p></div>
     <div className="support-layout">
       <div className="support-visual">
-        <div className="support-scene-label"><span>STUDENT HELPER / ПОДДЕРЖКА</span><span aria-hidden="true">0{active + 1} — 03</span></div>
-        <SupportArtwork active={active} scenes={supportStory} />
-        <div className="support-switcher" aria-label="Этапы сопровождения">
-          {supportStory.map((scene, index) => <button key={scene.id} type="button" aria-pressed={active === index} aria-controls={`chapter-${scene.id}`} onClick={() => chooseChapter(index)}><span>0{index + 1}</span>{scene.label}</button>)}
+        <div className="support-visual-entrance" data-reveal="scene">
+          <div className="support-scene-label"><span>STUDENT HELPER / ПОДДЕРЖКА</span><span aria-hidden="true">0{active + 1} — 03</span></div>
+          <SupportArtwork active={active} scenes={supportStory} />
+          <div className="support-switcher" aria-label="Этапы сопровождения">
+            {supportStory.map((scene, index) => <button key={scene.id} type="button" aria-pressed={active === index} aria-controls={`chapter-${scene.id}`} onClick={() => chooseChapter(index)}><span>0{index + 1}</span>{scene.label}</button>)}
+          </div>
         </div>
       </div>
       <div className="support-chapters">
         {supportStory.map((scene, index) => <article className={`support-chapter${active === index ? ' is-active' : ''}`} id={`chapter-${scene.id}`} ref={element => { chapters.current[index] = element }} key={scene.id}>
-          <span className="support-chapter-number">0{index + 1} <span>{scene.label}</span></span>
-          <h3>{scene.title}</h3><p>{scene.text}</p><div className="support-chapter-note">{index < 2 && <Check size={17} aria-hidden="true" />}<span>{scene.note}</span></div>
-          {index === 2 && <button type="button" className="text-action" onClick={() => onOrder()}>Обсудим ваше задание <ArrowRight size={18} /></button>}
+          <div className="support-chapter-copy" data-reveal="copy">
+            <span className="support-chapter-number">0{index + 1} <span>{scene.label}</span></span>
+            <h3>{scene.title}</h3><p>{scene.text}</p><div className="support-chapter-note">{index < 2 && <Check size={17} aria-hidden="true" />}<span>{scene.note}</span></div>
+            {index === 2 && <button type="button" className="text-action" onClick={() => onOrder()}>Обсудим ваше задание <ArrowRight size={18} /></button>}
+          </div>
         </article>)}
       </div>
     </div>
-    <div className="support-guarantee" id="guarantees"><span>Наша договорённость</span><p>Работаем над заданием.<br /><strong>Остаёмся рядом до сдачи.</strong></p><span className="support-guarantee-mark" aria-hidden="true"><Check size={38} strokeWidth={2.4} /></span></div>
+    <div className="support-guarantee" id="guarantees" data-reveal="copy"><span>Наша договорённость</span><p>Работаем над заданием.<br /><strong>Остаёмся рядом до сдачи.</strong></p><span className="support-guarantee-mark" aria-hidden="true"><Check size={38} strokeWidth={2.4} /></span></div>
   </section>
 }

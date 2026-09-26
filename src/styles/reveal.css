@@ -1,0 +1,21 @@
+/* One entrance per element; layout and native scrolling never change. */
+[data-reveal] { --reveal-y: 28px; --reveal-x: 0px; --reveal-scale: 1; --reveal-rotate: 0deg; opacity: 1; transform: none; transition: opacity .65s ease var(--reveal-delay, 0ms), transform .85s cubic-bezier(.16, 1, .3, 1) var(--reveal-delay, 0ms); }
+[data-reveal='stat'] { --reveal-y: 22px; }
+[data-reveal='line'] { --reveal-y: 34px; }
+[data-reveal='scene'] { --reveal-x: -28px; --reveal-y: 24px; --reveal-scale: .97; --reveal-rotate: -1.5deg; }
+[data-reveal='copy'] { --reveal-y: 22px; }
+[data-reveal].reveal-pending { opacity: 0; transform: translate3d(var(--reveal-x), var(--reveal-y), 0) scale(var(--reveal-scale)) rotate(var(--reveal-rotate)); }
+[data-reveal]:focus-within { opacity: 1; transform: none; transition: none; }
+.support-title-line { display: block; }
+.support-title-line + .support-title-line { --reveal-delay: 90ms; }
+.support-chapter-copy { display: flex; flex-direction: column; align-items: flex-start; }
+@media (max-width: 600px) {
+  [data-reveal] { --reveal-y: 18px; --reveal-x: 0px; --reveal-rotate: 0deg; transition-duration: .5s, .65s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal].reveal-pending { opacity: 1; transform: none; }
+  [data-reveal] { transition: none; }
+}
+@media print {
+  [data-reveal].reveal-pending { opacity: 1; transform: none; }
+}
