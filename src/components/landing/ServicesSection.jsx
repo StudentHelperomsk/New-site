@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowUpRight, ArrowRight, HeartHandshake, MessagesSquare, CheckCheck } from 'lucide-react'
+import { ArrowUpRight, ArrowRight, MessagesSquare } from 'lucide-react'
 import { services } from '../../content/landing'
 import SectionHeading from './SectionHeading'
 
@@ -15,7 +15,7 @@ export default function ServicesSection({ onSelect }) {
   const direction = directions[active]
   const service = services[direction.index]
   return <section className="landing-section services-section" id="services" aria-labelledby="services-title">
-    <SectionHeading id="services-title" eyebrow="ВАША ЗАДАЧА — НАША ЗАБОТА" title={<>С чего начнём<br /><em>именно у вас?</em></>} description="Поможем с отдельным заданием или пройдём весь путь до сдачи." />
+    <SectionHeading id="services-title" eyebrow="С ЧЕМ ПОМОЖЕМ" title={<>Теперь —<br /><em>к вашей задаче.</em></>} description="От отдельного расчёта до дипломного проекта. Выберите, что сейчас нужно вам." />
     <div className="service-explorer">
       <div className="service-choices">
         <div className="service-list" aria-label="Выберите направление">
@@ -27,16 +27,14 @@ export default function ServicesSection({ onSelect }) {
       </div>
       <div className="service-stage" id="service-detail" aria-live="polite">
         <div className="service-stage-top"><span>{direction.caption}</span><span>0{active + 1} / 04</span></div>
-        <div className="service-art" key={service.icon}>
-          <span className="service-orbit" aria-hidden="true" /><span className="service-sheet-back" aria-hidden="true" />
-          <div className="service-sheet"><span>STUDENT HELPER</span><img src={`/assets/${direction.artwork}.svg`} alt="" width="150" height="150" /><strong>{service.title}</strong></div>
-          <span className="service-art-note"><CheckCheck size={19} aria-hidden="true" />Правки? Мы рядом.</span>
+        <div className="service-detail-content" key={service.icon}>
+          <img className="service-detail-mark" src={`/assets/${direction.artwork}.svg`} alt="" width="76" height="76" />
+          <h3>{service.title}</h3>
+          <p className="service-detail-description">{service.description}</p>
         </div>
-        <p className="service-detail-description">{service.description}</p>
         <div className="service-stage-bottom"><span><small>Стоимость работы</small><strong>от {service.price} ₽</strong></span><button type="button" className="button button-dark" onClick={() => onSelect(service.title)}>Обсудить <ArrowUpRight size={19} aria-hidden="true" /></button></div>
       </div>
     </div>
     <div className="service-other"><span>А ещё поможем</span><div>{services.filter((_, index) => !directions.some(item => item.index === index)).map(item => <button type="button" key={item.icon} onClick={() => onSelect(item.title)}>{item.title}<ArrowUpRight size={14} aria-hidden="true" /></button>)}</div></div>
-    <div className="service-promise"><div><HeartHandshake size={28} aria-hidden="true" /><strong>Остаёмся с вами до сдачи</strong></div><p>Разберём замечания преподавателя и внесём правки по исходному заданию — без ограничений по количеству и без доплат.</p></div>
   </section>
 }

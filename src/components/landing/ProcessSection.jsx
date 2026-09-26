@@ -1,13 +1,65 @@
-import { BadgeCheck, FilePenLine, LockKeyhole } from 'lucide-react'
-import { assurances, steps } from '../../content/landing'
-import SectionHeading from './SectionHeading'
+import { useEffect, useRef, useState } from 'react'
+import { ArrowRight, Check } from 'lucide-react'
+import { supportStory } from '../../content/support'
+import SupportArtwork from './SupportArtwork'
+import '../../styles/support.css'
 
-const icons = { check: BadgeCheck, edit: FilePenLine, lock: LockKeyhole }
+export default function ProcessSection({ onOrder }) {
+  const [active, setActive] = useState(0)
+  const section = useRef(null)
+  const chapters = useRef([])
 
-export default function ProcessSection() {
-  return <section className="landing-section process-section" id="process" aria-labelledby="process-title">
-    <SectionHeading id="process-title" eyebrow="КАК МЫ РАБОТАЕМ" title={<>Всё понятно.<br />На каждом этапе.</>} description="От первого сообщения до доработок. Вы знаете, что происходит с заданием и какой шаг будет следующим." />
-    <ol className="process-steps">{steps.map((step, index) => <li key={step.title}><span className="step-marker">0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
-    <div className="assurances" id="guarantees">{assurances.map(item => { const Icon = icons[item.icon]; return <div className="assurance" key={item.title}><Icon size={25} strokeWidth={1.6} /><div><h3>{item.title}</h3><p>{item.text}</p></div></div> })}</div>
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 901px) and (min-height: 650px)')
+    let frame = 0
+    const update = () => {
+      frame = 0
+      if (!desktop.matches) return
+      const bounds = section.current.getBoundingClientRect()
+      if (bounds.bottom < 0 || bounds.top > window.innerHeight) return
+      const target = window.innerHeight * .55
+      const distances = chapters.current.map(element => {
+        const rect = element.getBoundingClientRect()
+        return Math.abs(rect.top + rect.height / 2 - target)
+      })
+      setActive(distances.indexOf(Math.min(...distances)))
+    }
+    const schedule = () => { if (!frame) frame = requestAnimationFrame(update) }
+    window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('resize', schedule)
+    schedule()
+    return () => {
+      cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', schedule)
+      window.removeEventListener('resize', schedule)
+    }
+  }, [])
+
+  const chooseChapter = index => {
+    setActive(index)
+    if (window.matchMedia('(min-width: 901px) and (min-height: 650px)').matches) {
+      chapters.current[index].scrollIntoView({ block: 'center', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+    }
+  }
+
+  return <section className="support-story" id="process" ref={section} aria-labelledby="process-title">
+    <div className="support-heading"><span className="support-eyebrow">НА ВАШЕЙ СТОРОНЕ</span><h2 id="process-title">С задачей можно<br />не оставаться <em>один на один.</em></h2><p>Внимание к работе.<br />И к человеку за ней.</p></div>
+    <div className="support-layout">
+      <div className="support-visual">
+        <div className="support-scene-label"><span>STUDENT HELPER / ПОДДЕРЖКА</span><span aria-hidden="true">0{active + 1} — 03</span></div>
+        <SupportArtwork active={active} scenes={supportStory} />
+        <div className="support-switcher" aria-label="Этапы сопровождения">
+          {supportStory.map((scene, index) => <button key={scene.id} type="button" aria-pressed={active === index} aria-controls={`chapter-${scene.id}`} onClick={() => chooseChapter(index)}><span>0{index + 1}</span>{scene.label}</button>)}
+        </div>
+      </div>
+      <div className="support-chapters">
+        {supportStory.map((scene, index) => <article className={`support-chapter${active === index ? ' is-active' : ''}`} id={`chapter-${scene.id}`} ref={element => { chapters.current[index] = element }} key={scene.id}>
+          <span className="support-chapter-number">0{index + 1} <span>{scene.label}</span></span>
+          <h3>{scene.title}</h3><p>{scene.text}</p><div className="support-chapter-note">{index < 2 && <Check size={17} aria-hidden="true" />}<span>{scene.note}</span></div>
+          {index === 2 && <button type="button" className="text-action" onClick={() => onOrder()}>Обсудим ваше задание <ArrowRight size={18} /></button>}
+        </article>)}
+      </div>
+    </div>
+    <div className="support-guarantee" id="guarantees"><span>Наша договорённость</span><p>Работаем над заданием.<br /><strong>Остаёмся рядом до сдачи.</strong></p><span className="support-guarantee-mark" aria-hidden="true"><Check size={38} strokeWidth={2.4} /></span></div>
   </section>
 }

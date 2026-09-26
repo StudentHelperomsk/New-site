@@ -15,7 +15,9 @@ The owner authorized continuing the landing page with content from studenthelper
 - `src/styles/global.css`: fonts, reset, accessible shared controls.
 - `src/styles/home.css`: first-screen layout and responsive styles.
 - `src/styles/landing.css`: new landing sections and their responsive styles.
-- `src/content/landing.js`: service prices, work examples, workflow, reviews, FAQ and manager URL.
+- `src/content/landing.js`: service prices, work examples, reviews, FAQ and manager URL.
+- `src/content/support.js`: three support chapters and optional replacement artwork paths.
+- `src/components/landing/SupportArtwork.jsx` and `src/styles/support.css`: the illustrated support story; replacement guidelines are in `docs/SUPPORT_ARTWORK.md`.
 - `public/assets/`: production artwork and self-hosted fonts.
 - `docs/FIRST_SCREEN.md`: implementation decisions and integration status.
 - `docs/CONTENT_SOURCES.md`: imported content sources and unresolved integrations.

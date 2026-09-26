@@ -27,9 +27,9 @@ export default function App() {
         <div className="hero-layout"><Hero onOrder={focusEstimate} /><EstimateForm description={description} onDescriptionChange={setDescription} /></div>
         <StatsBar />
         <div className="landing-content">
+          <ProcessSection onOrder={focusEstimate} />
           <ServicesSection onSelect={focusEstimate} />
           <ExamplesSection />
-          <ProcessSection />
           <ReviewsSection />
           <FaqSection />
           <ContactSection onOrder={focusEstimate} />
