@@ -224,33 +224,7 @@
 .service-detail-content h3 { font-size: clamp(1.5rem, 2.4vw, 2.15rem); letter-spacing: -.9px; line-height: 1.2; margin: 0 0 16px; font-weight: 700; }
 .service-detail-description { min-height: 76px; margin-bottom: 25px; }
 
-/* Original messages on desktop; readable transcripts on small screens. */
-.reviews-section { display: grid; grid-template-columns: .72fr 1.35fr; align-items: center; gap: 7%; padding: 30px 28px; }
-.reviews-intro h2 { font-size: clamp(1.9rem, 3.2vw, 3rem); line-height: 1.2; letter-spacing: -1.65px; margin: 0 0 18px; font-weight: 700; }
-.reviews-intro h2 em { color: var(--green-deep); font-style: normal; }
-.reviews-intro p { max-width: 280px; margin: 0; color: #758176; font-size: .92rem; line-height: 1.7; }
-.reviews-grid { display: flex; flex-direction: column; gap: 18px; position: relative; isolation: isolate; min-width: 0; }
-.reviews-grid::before { content: ''; position: absolute; inset: 10% 2% 7% 15%; border-radius: 45% 35% 50% 40%; background: #e6f3eb; z-index: -1; transform: rotate(-9deg); }
-.review-card { width: 94%; margin: 0; }
-.review-card:nth-child(2) { align-self: flex-end; }
-.review-card img { display: block; width: 100%; height: auto; filter: drop-shadow(0 5px 10px #294e3309); }
-.review-transcript { display: none; }
-@media (max-width: 1100px) {
-  .reviews-section { grid-template-columns: 1fr; gap: 28px; padding: 20px 0; }
-  .reviews-intro h2 br { display: none; }
-  .reviews-intro p { max-width: none; }
-  .reviews-grid { max-width: 740px; width: 100%; justify-self: center; }
-}
-@media (max-width: 600px) {
-  .reviews-section { gap: 24px; padding: 10px 0; }
-  .reviews-intro h2 { font-size: 2rem; }
-  .reviews-grid { gap: 14px; }
-  .reviews-grid::before { inset: 4% 0 4% 8%; transform: none; }
-  .review-card { width: 96%; }
-  .review-card img { display: none; }
-  .review-transcript { display: block; margin: 0; padding: 18px 20px; border: 1px solid #e5ece7; border-radius: 22px 22px 22px 5px; background: white; color: var(--ink); font-size: .94rem; line-height: 1.6; white-space: pre-line; }
-  .review-card:nth-child(2) .review-transcript { border-radius: 22px 22px 5px 22px; }
-}
+/* Reviews: see reviews.css for the static collage and decorative scroll layer. */
 
 @media (max-width: 600px) {
   .service-stage { padding: 25px; }
