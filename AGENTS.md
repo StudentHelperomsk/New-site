@@ -25,7 +25,7 @@ The owner authorized continuing the landing page, the shared estimate dialog, an
 - `src/hooks/useScrollReveal.js` and `src/styles/reveal.css`: once-only entrances for statistics, support chapters and service/example headings. Use explicit `data-reveal` targets; never transform sticky containers or hide initially visible content.
 - `src/styles/landing.css`: new landing sections and their responsive styles.
 - `src/content/landing.js`: service prices, work examples, reviews, FAQ and manager URL.
-- `src/styles/reviews.css`, `src/content/reviewBackdrop.js` and `src/hooks/useReviewParallax.js`: static primary reviews with a separate decorative scroll layer. Never make the main reviews fly in or depend on scroll progress to become readable; no opening reviews on click.
+- `src/styles/reviews.css` and `src/content/reviewBackdrop.js`: entirely static review collage, with smaller original messages arranged behind the main reviews. No parallax, fly-in animation or opening reviews on click.
 - `src/content/support.js`: three support chapters and optional replacement artwork paths.
 - `src/components/landing/SupportArtwork.jsx` and `src/styles/support.css`: the illustrated support story; replacement guidelines are in `docs/SUPPORT_ARTWORK.md`.
 - `public/assets/`: production artwork and self-hosted fonts.

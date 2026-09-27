@@ -224,7 +224,7 @@
 .service-detail-content h3 { font-size: clamp(1.5rem, 2.4vw, 2.15rem); letter-spacing: -.9px; line-height: 1.2; margin: 0 0 16px; font-weight: 700; }
 .service-detail-description { min-height: 76px; margin-bottom: 25px; }
 
-/* Reviews: see reviews.css for the static collage and decorative scroll layer. */
+/* Reviews: see reviews.css for the static message collage. */
 
 @media (max-width: 600px) {
   .service-stage { padding: 25px; }
