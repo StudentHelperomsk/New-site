@@ -26,12 +26,12 @@ export default function ExamplesSection() {
         <span className="example-copy"><span className="example-category">{example.category}</span><strong>{example.title}</strong><span className="example-format"><FileText size={13} />Посмотреть работу</span></span>
       </button>)}
     </div>
-    <div className="gallery-footer"><p>Настоящие работы. Можно открыть и рассмотреть.</p><a className="text-action" href="https://studenthelper.ru/examples/" target="_blank" rel="noreferrer">Весь архив работ <ArrowUpRight size={17} /></a></div>
+    <div className="gallery-footer"><p>Настоящие работы. Можно открыть и рассмотреть.</p><a className="text-action" href="/examples/">Весь архив работ <ArrowUpRight size={17} /></a></div>
     <dialog className="work-dialog" ref={dialog} onCancel={() => setSelected(null)} onClose={() => setSelected(null)} onClick={event => { if (event.target === event.currentTarget) setSelected(null) }} aria-labelledby="work-dialog-title">
       {selected && <div className="work-dialog-inner">
         <div className="work-dialog-header"><div><span className="example-category">{selected.category}</span><h3 id="work-dialog-title">{selected.title}</h3></div><button className="dialog-close" onClick={() => setSelected(null)} aria-label="Закрыть пример"><X size={22} /></button></div>
         <div className="work-dialog-preview"><img src={`/assets/examples/${selected.slug}.webp`} alt={selected.alt} /></div>
-        <div className="work-dialog-footer"><span>Предпросмотр страницы работы</span><a className="button button-dark" href={`https://studenthelper.ru/assets/examples/pdf/${selected.slug}.pdf`} target="_blank" rel="noreferrer">Открыть полный PDF <ArrowUpRight size={17} /></a></div>
+        <div className="work-dialog-footer"><span>Предпросмотр страницы работы</span><a className="button button-dark" href={`/assets/examples/pdf/${selected.slug}.pdf`} target="_blank" rel="noreferrer">Открыть полный PDF <ArrowUpRight size={17} /></a></div>
       </div>}
     </dialog>
   </section>

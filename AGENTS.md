@@ -3,10 +3,15 @@
 ## Scope
 The home page includes the approved hero, statistics, services and prices, work examples, process and assurances, reviews, FAQ, contact CTA and footer.
 On desktop, the header and hero occupy at least one browser viewport. Statistics begin below that first viewport. Use CSS viewport units rather than physical display resolution.
-The owner authorized continuing the landing page with content from studenthelper.ru, then moving the estimate form into a dialog and animating the hero artwork. Preserve the white, green and black visual direction. Additional routes and backend integration remain separate work.
+The owner authorized continuing the landing page, the shared estimate dialog, animated artwork, and migration of all pages from studenthelper.ru. Preserve the approved homepage and white, green and black visual direction. Server-side order submission remains separate work.
 
 ## Structure
 - `src/app/App.jsx`: page composition.
+- `src/pages/` and `src/components/pages/`: internal page layouts, reading components and work preview dialog.
+- `src/content/site.json`: imported page content, catalog, PDF library, guides and legal documents. Keep legal text intact unless the owner explicitly requests edits.
+- `src/content/site.js`: route resolution and shared content access. Use ordinary links so browser history, deep links and static hosting work naturally.
+- `src/styles/pages.css`: internal page layouts and responsive rules; keep changes scoped away from the approved hero.
+- `src/entry-server.jsx` and `scripts/build.mjs`: prerender all 25 URLs and 404 into static HTML, with per-page metadata and sitemap.
 - `src/components/`: small semantic components; form state stays in EstimateForm.
 - `src/components/EstimateDialog.jsx`: shared native order dialog; opening must preserve the page position, closing must preserve the draft and return focus to the trigger.
 - `src/components/landing/`: below-the-fold sections and the shared section heading.
@@ -33,9 +38,10 @@ The owner authorized continuing the landing page with content from studenthelper
 - Keep the first screen comfortable at 1440×900 and 1366×768; allow natural scrolling on small screens and at text enlargement. Never hide overflow to conceal clipped content.
 - Preserve keyboard navigation, visible focus, labels, native validation and reduced-motion behavior.
 - Hero motion pauses offscreen, when the tab is hidden and while a dialog is open. Cursor movement only affects fine pointers and respects reduced-motion preferences.
-- Personal-data consent is required and unchecked by default. The owner will supply the consent document later; do not invent its contents or a placeholder link.
+- Personal-data consent is required and unchecked by default. It links to the existing imported consent and privacy documents; do not invent their contents.
 - Do not invent contact information or make the form claim an application was sent before a real service is connected.
-- Navigation links must target existing sections. Work previews use a native dialog with Escape/focus handling and link to real PDFs on the source site.
+- Navigation links must target existing routes or sections. Work previews use a native dialog with Escape/focus handling and link to real local PDFs in `public/assets/examples/pdf/`.
+- Preserve all source URLs listed in `src/content/site.json`. Payment links retain the `payment` query parameter. Never test with a real payment or invent banking details; the page uses the original backend and bank SDK.
 - Run `npm run lint` and `npm run build` after source changes. Check desktop and mobile layout and affected interactions.
 - Keep the lockfile committed and use `npm ci` for reproducible installation.
 

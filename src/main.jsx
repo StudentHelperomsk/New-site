@@ -1,5 +1,5 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import App from './app/App'
 import './styles/tokens.css'
 import './styles/global.css'
@@ -7,5 +7,9 @@ import './styles/home.css'
 import './styles/hero.css'
 import './styles/estimate-dialog.css'
 import './styles/reveal.css'
+import './styles/pages.css'
 
-createRoot(document.getElementById('root')).render(<StrictMode><App /></StrictMode>)
+const root = document.getElementById('root')
+const app = <StrictMode><App /></StrictMode>
+if (root.hasChildNodes()) hydrateRoot(root, app)
+else createRoot(root).render(app)

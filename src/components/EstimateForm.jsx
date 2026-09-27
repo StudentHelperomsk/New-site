@@ -35,7 +35,7 @@ export default function EstimateForm({ description, onDescriptionChange }) {
       </div>
       <label className="consent-label" htmlFor="privacy-consent">
         <input id="privacy-consent" name="privacyConsent" type="checkbox" required />
-        <span>Согласен на обработку персональных данных</span>
+        <span>Согласен на <a href="/consent/" target="_blank" rel="noreferrer">обработку персональных данных</a> на условиях <a href="/privacy/" target="_blank" rel="noreferrer">политики</a></span>
       </label>
       <button type="submit" className="button button-dark calculate-button">Получить расчёт <ArrowRight size={17} /></button>
       {feedback && <p className={`form-feedback ${submitted ? 'is-prepared' : ''}`} role="status">{feedback}</p>}

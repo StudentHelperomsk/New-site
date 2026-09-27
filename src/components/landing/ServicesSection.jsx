@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ArrowUpRight, ArrowRight, MessagesSquare } from 'lucide-react'
 import { services } from '../../content/landing'
+import { catalog } from '../../content/site'
 import SectionHeading from './SectionHeading'
 
 const directions = [
@@ -15,7 +16,7 @@ export default function ServicesSection({ onSelect }) {
   const direction = directions[active]
   const service = services[direction.index]
   return <section className="landing-section services-section" id="services" aria-labelledby="services-title">
-    <SectionHeading id="services-title" eyebrow="С ЧЕМ ПОМОЖЕМ" title={<>Теперь —<br /><em>к вашей задаче.</em></>} description="От отдельного расчёта до дипломного проекта. Выберите, что сейчас нужно вам." />
+    <SectionHeading id="services-title" eyebrow="С ЧЕМ ПОМОЖЕМ" title={<>Теперь —<br /><em>к вашей задаче.</em></>} description="От отдельного расчёта до дипломного проекта. Выберите, что сейчас нужно вам."><a className="text-action" href="/services/">Все направления <ArrowUpRight size={16} /></a></SectionHeading>
     <div className="service-explorer">
       <div className="service-choices" data-reveal="copy">
         <div className="service-list" aria-label="Выберите направление">
@@ -31,6 +32,7 @@ export default function ServicesSection({ onSelect }) {
           <img className="service-detail-mark" src={`/assets/${direction.artwork}.svg`} alt="" width="76" height="76" />
           <h3>{service.title}</h3>
           <p className="service-detail-description">{service.description}</p>
+          <a className="service-details-link" href={catalog[direction.index].path}>Подробнее об услуге <ArrowUpRight size={15} /></a>
         </div>
         <div className="service-stage-bottom"><span><small>Стоимость работы</small><strong>от {service.price} ₽</strong></span><button type="button" className="button button-dark" onClick={() => onSelect(service.title)}>Обсудить <ArrowUpRight size={19} aria-hidden="true" /></button></div>
       </div>
