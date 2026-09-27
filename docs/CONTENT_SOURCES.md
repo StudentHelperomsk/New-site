@@ -26,7 +26,7 @@
 Серверная отправка формы, загрузка файлов и контакт заявителя остаются отдельным этапом. Форма не заявляет об успешной отправке. Галочка согласия обязательна и выключена по умолчанию, документ взят из действующего сайта. Страница СБП использует прежний API и банковский виджет; реальный платёж не проводился. Публичный домен не менялся: результат размещён только в репозитории и локальном предпросмотре.
 
 ## Проверка
-Перенос внутренних страниц: сборка, ESLint, все 25 адресов, ссылки и файлы, неизменность текста девяти статей/документов. Визуальная проверка новых страниц ограничена отказом инструмента браузера. Подробности и список адресов — [SITE_MIGRATION.md](SITE_MIGRATION.md). Предыдущая браузерная проверка относилась к главной до этого переноса.
+Перенос внутренних страниц: сборка, ESLint, все 25 адресов, ссылки и файлы, неизменность текста девяти статей/документов. После восстановления доступа выполнена браузерная проверка настольной и мобильной вёрстки, меню, поиска, фильтров, превью, FAQ и формы. Подробности и список адресов — [SITE_MIGRATION.md](SITE_MIGRATION.md).
 
 ## Service presentation update
 Services now use four switchable featured directions; all eight services remain available. Portfolio shows two larger real previews per page, with the existing PDF dialog. The owner confirmed unlimited free revisions within the original assignment until submission; changed requirements are discussed individually and a new assignment is priced separately.
