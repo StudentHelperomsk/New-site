@@ -43,7 +43,7 @@ export default function ProcessSection({ onOrder }) {
   }
 
   return <section className="support-story" id="process" ref={section} aria-labelledby="process-title">
-    <div className="support-heading"><span className="support-eyebrow" data-reveal="copy">НА ВАШЕЙ СТОРОНЕ</span><h2 id="process-title"><span className="support-title-line" data-reveal="line">С задачей можно</span><span className="support-title-line" data-reveal="line">не оставаться <em>один на один.</em></span></h2><p data-reveal="copy">Внимание к работе.<br />И к человеку за ней.</p></div>
+    <div className="support-heading"><span className="support-eyebrow" data-reveal="copy">НАШИ ГАРАНТИИ</span><h2 id="process-title"><span className="support-title-line" data-reveal="line">Бесплатные доработки</span><span className="support-title-line" data-reveal="line"><em>до полной сдачи</em></span></h2><p data-reveal="copy">Учитываем требования.<br />Исправляем замечания преподавателя.</p></div>
     <div className="support-layout">
       <div className="support-visual">
         <div className="support-visual-entrance" data-reveal="scene">
@@ -59,11 +59,11 @@ export default function ProcessSection({ onOrder }) {
           <div className="support-chapter-copy" data-reveal="copy">
             <span className="support-chapter-number">0{index + 1} <span>{scene.label}</span></span>
             <h3>{scene.title}</h3><p>{scene.text}</p><div className="support-chapter-note">{index < 2 && <Check size={17} aria-hidden="true" />}<span>{scene.note}</span></div>
-            {index === 2 && <button type="button" className="text-action" onClick={() => onOrder()}>Обсудим ваше задание <ArrowRight size={18} /></button>}
+            {index === 2 && <button type="button" className="text-action" onClick={() => onOrder()}>Оценить задание <ArrowRight size={18} /></button>}
           </div>
         </article>)}
       </div>
     </div>
-    <div className="support-guarantee" id="guarantees" data-reveal="copy"><span>Наша договорённость</span><p>Работаем над заданием.<br /><strong>Остаёмся рядом до сдачи.</strong></p><span className="support-guarantee-mark" aria-hidden="true"><Check size={38} strokeWidth={2.4} /></span></div>
+    <div className="support-guarantee" id="guarantees" data-reveal="copy"><span>Входит в стоимость</span><p>Доработки по исходному заданию.<br /><strong>Бесплатно до полной сдачи.</strong></p><span className="support-guarantee-mark" aria-hidden="true"><Check size={38} strokeWidth={2.4} /></span></div>
   </section>
 }

@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { ArrowRight, FileText, LockKeyhole, Paperclip, X } from 'lucide-react'
+import { ArrowRight, FileText, Paperclip, X } from 'lucide-react'
 
 export default function EstimateForm({ description, onDescriptionChange }) {
   const [file, setFile] = useState(null)
@@ -21,10 +21,10 @@ export default function EstimateForm({ description, onDescriptionChange }) {
   const submit = event => {
     event.preventDefault()
     setSubmitted(true)
-    setFeedback('Задание подготовлено. Отправка заявки появится после подключения сервиса — сейчас данные остаются только на этой странице.')
+    setFeedback('Отправка через форму пока недоступна. Задание не отправлено. Свяжитесь с менеджером в Telegram.')
   }
   return <aside className="estimate-card" id="estimate" aria-labelledby="estimate-title">
-    <div className="form-topline"><span className="form-step">01 / ПЕРВЫЙ ШАГ</span><span className="form-time">≈ 15 минут</span></div>
+    <div className="form-topline"><span className="form-step">ОЦЕНКА ЗАДАНИЯ</span><span className="form-time">Бесплатно</span></div>
     <h2 id="estimate-title" tabIndex={-1}>Узнайте стоимость<br /> вашей работы</h2>
     <form onSubmit={submit} onChange={() => { if (submitted) { setSubmitted(false); setFeedback('') } }}>
       <label htmlFor="description">Опишите ваше задание</label>
@@ -39,7 +39,7 @@ export default function EstimateForm({ description, onDescriptionChange }) {
       </label>
       <button type="submit" className="button button-dark calculate-button">Получить расчёт <ArrowRight size={17} /></button>
       {feedback && <p className={`form-feedback ${submitted ? 'is-prepared' : ''}`} role="status">{feedback}</p>}
-      <p className="privacy-note"><LockKeyhole size={12} />Ваши данные в безопасности</p>
+      <p className="privacy-note">Ничего оплачивать сейчас не нужно</p>
     </form>
   </aside>
 }

@@ -32,6 +32,7 @@ The owner authorized continuing the landing page, the shared estimate dialog, an
 - `docs/CONTENT_SOURCES.md`: imported content sources and unresolved integrations.
 
 ## Working rules
+- Match the original studenthelper.ru voice: direct descriptions of work, requirements, price, deadlines and revisions. Prefer the owner's source wording over new slogans. Avoid abstract emotional copy such as "Спросить — это нормально", "За каждой работой — чья-то задача", "Мы рядом" or "Немного ясности". Warmth should come from concrete service commitments, not metaphors or motivational phrases.
 - Put screenshots, scripts, source archives and all disposable work in `operation/` (gitignored).
 - Keep production files outside operation. Never commit credentials, .env files, node_modules or build output.
 - Use the existing React/Vite stack. Do not add a UI framework without a concrete need.

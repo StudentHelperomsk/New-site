@@ -17,7 +17,7 @@ export default function ExamplesSection() {
   }, [selected])
 
   return <section className="landing-section examples-section" id="examples" aria-labelledby="examples-title">
-    <SectionHeading id="examples-title" eyebrow="ОТ ЗАДАЧИ К РЕЗУЛЬТАТУ" title={<>За каждой работой —<br />чья-то задача.</>}>
+    <SectionHeading id="examples-title" eyebrow="ПРИМЕРЫ РАБОТ" title={<>Оцените качество<br />по реальным работам</>}>
       <div className="gallery-controls"><span aria-live="polite">0{page + 1} / 02</span><button type="button" onClick={() => setPage(current => (current + pages.length - 1) % pages.length)} aria-label="Предыдущие примеры"><ArrowLeft size={20} /></button><button type="button" onClick={() => setPage(current => (current + 1) % pages.length)} aria-label="Следующие примеры"><ArrowRight size={20} /></button></div>
     </SectionHeading>
     <div className="examples-grid" key={page}>
@@ -26,7 +26,7 @@ export default function ExamplesSection() {
         <span className="example-copy"><span className="example-category">{example.category}</span><strong>{example.title}</strong><span className="example-format"><FileText size={13} />Посмотреть работу</span></span>
       </button>)}
     </div>
-    <div className="gallery-footer"><p>Настоящие работы. Можно открыть и рассмотреть.</p><a className="text-action" href="/examples/">Весь архив работ <ArrowUpRight size={17} /></a></div>
+    <div className="gallery-footer"><p>Каждую работу можно открыть целиком в PDF.</p><a className="text-action" href="/examples/">Все примеры работ <ArrowUpRight size={17} /></a></div>
     <dialog className="work-dialog" ref={dialog} onCancel={() => setSelected(null)} onClose={() => setSelected(null)} onClick={event => { if (event.target === event.currentTarget) setSelected(null) }} aria-labelledby="work-dialog-title">
       {selected && <div className="work-dialog-inner">
         <div className="work-dialog-header"><div><span className="example-category">{selected.category}</span><h3 id="work-dialog-title">{selected.title}</h3></div><button className="dialog-close" onClick={() => setSelected(null)} aria-label="Закрыть пример"><X size={22} /></button></div>
