@@ -8,6 +8,7 @@ import './styles/hero.css'
 import './styles/estimate-dialog.css'
 import './styles/reveal.css'
 import './styles/pages.css'
+import './styles/mobile.css'
 
 const root = document.getElementById('root')
 const app = <StrictMode><App /></StrictMode>

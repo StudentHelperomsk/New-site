@@ -5,10 +5,10 @@ import { catalog } from '../../content/site'
 import SectionHeading from './SectionHeading'
 
 const directions = [
-  { index: 0, artwork: 'coursework', caption: 'Теоретическая и расчётная части' },
-  { index: 7, artwork: 'diploma', caption: 'Разделы, оформление и нормоконтроль' },
-  { index: 1, artwork: 'analytics', caption: 'Чертежи, схемы и 3D-модели' },
-  { index: 4, artwork: 'presentation', caption: 'Структура, тезисы и слайды' },
+  { index: 0, shortLabel: 'Курсовые', artwork: 'coursework', caption: 'Теоретическая и расчётная части' },
+  { index: 7, shortLabel: 'Диплом', artwork: 'diploma', caption: 'Разделы, оформление и нормоконтроль' },
+  { index: 1, shortLabel: 'Чертежи', artwork: 'analytics', caption: 'Чертежи, схемы и 3D-модели' },
+  { index: 4, shortLabel: 'Презентации', artwork: 'presentation', caption: 'Структура, тезисы и слайды' },
 ]
 
 export default function ServicesSection({ onSelect }) {
@@ -21,7 +21,7 @@ export default function ServicesSection({ onSelect }) {
       <div className="service-choices" data-reveal="copy">
         <div className="service-list" aria-label="Выберите направление">
           {directions.map((item, index) => <button key={item.index} type="button" className="service-choice" aria-pressed={active === index} aria-controls="service-detail" onClick={() => setActive(index)}>
-            <span className="service-number">0{index + 1}</span><span>{services[item.index].title}</span><ArrowUpRight size={23} aria-hidden="true" />
+            <span className="service-number">0{index + 1}</span><span className="service-label-full">{services[item.index].title}</span><span className="service-label-short">{item.shortLabel}</span><ArrowUpRight size={23} aria-hidden="true" />
           </button>)}
         </div>
         <button type="button" className="service-help" onClick={() => onSelect()}><MessagesSquare size={21} aria-hidden="true" /><span>Нужно несколько видов работ?<br /><strong>Оценим все части вместе.</strong></span><ArrowRight size={18} aria-hidden="true" /></button>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
 import { supportStory } from '../../content/support'
 import SupportArtwork from './SupportArtwork'
 import '../../styles/support.css'
@@ -8,6 +8,7 @@ export default function ProcessSection({ onOrder }) {
   const [active, setActive] = useState(0)
   const section = useRef(null)
   const chapters = useRef([])
+  const switches = useRef([])
 
   useEffect(() => {
     const desktop = window.matchMedia('(min-width: 901px) and (min-height: 650px)')
@@ -35,10 +36,15 @@ export default function ProcessSection({ onOrder }) {
     }
   }, [])
 
-  const chooseChapter = index => {
+  const chooseChapter = (index, returnToStart = false) => {
     setActive(index)
     if (window.matchMedia('(min-width: 901px) and (min-height: 650px)').matches) {
       chapters.current[index].scrollIntoView({ block: 'center', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+    } else if (returnToStart) {
+      requestAnimationFrame(() => {
+        switches.current[index].focus({ preventScroll: true })
+        section.current.querySelector('.support-layout').scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+      })
     }
   }
 
@@ -50,7 +56,7 @@ export default function ProcessSection({ onOrder }) {
           <div className="support-scene-label"><span>STUDENT HELPER / ПОРЯДОК РАБОТЫ</span><span aria-hidden="true">0{active + 1} — 03</span></div>
           <SupportArtwork active={active} scenes={supportStory} />
           <div className="support-switcher" aria-label="Этапы работы">
-            {supportStory.map((scene, index) => <button key={scene.id} type="button" aria-pressed={active === index} aria-controls={`chapter-${scene.id}`} onClick={() => chooseChapter(index)}><span>0{index + 1}</span>{scene.label}</button>)}
+            {supportStory.map((scene, index) => <button key={scene.id} ref={element => { switches.current[index] = element }} type="button" aria-pressed={active === index} aria-controls={`chapter-${scene.id}`} onClick={() => chooseChapter(index)}><span>0{index + 1}</span>{scene.label}</button>)}
           </div>
         </div>
       </div>
@@ -63,6 +69,7 @@ export default function ProcessSection({ onOrder }) {
           </div>
         </article>)}
       </div>
+      <div className="mobile-step-controls" aria-label="Переключить этап"><button type="button" aria-label="Предыдущий этап" disabled={active === 0} onClick={() => chooseChapter(active - 1, true)}><ArrowLeft size={20} /></button><span aria-live="polite">Этап {active + 1} из 3</span><button type="button" aria-label="Следующий этап" disabled={active === 2} onClick={() => chooseChapter(active + 1, true)}><ArrowRight size={20} /></button></div>
     </div>
     <div className="support-guarantee" id="guarantees" data-reveal="copy"><span>Входит в стоимость</span><p>Доработки по исходному заданию.<br /><strong>Бесплатно до полной сдачи.</strong></p><span className="support-guarantee-mark" aria-hidden="true"><Check size={38} strokeWidth={2.4} /></span></div>
   </section>

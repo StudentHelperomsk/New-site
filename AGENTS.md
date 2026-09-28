@@ -24,6 +24,8 @@ The owner authorized continuing the landing page, the shared estimate dialog, an
 - `src/styles/estimate-dialog.css`: order dialog and backdrop.
 - `src/hooks/useScrollReveal.js` and `src/styles/reveal.css`: once-only entrances for statistics, support chapters and service/example headings. Use explicit `data-reveal` targets; never transform sticky containers or hide initially visible content.
 - `src/styles/landing.css`: new landing sections and their responsive styles.
+- `src/styles/mobile.css`: phone-specific compositions (up to 600px), imported last. Keep desktop styling in the existing section files. Mobile uses compact hero artwork, manually switched stages, horizontal service choices and portfolio, collapsible footer groups and an order bottom sheet.
+- `src/components/MobileOrderBar.jsx`: the mobile order shortcut. It appears after the hero and hides around existing order controls, the footer and open dialogs; respect safe-area insets and keyboard focus.
 - `src/content/landing.js`: service prices, work examples, reviews, FAQ and manager URL.
 - `src/styles/reviews.css` and `src/content/reviewBackdrop.js`: fixed review collage, with smaller original messages behind the main reviews and clear space around the heading. The shared reveal hook adds a gentle, once-only entrance; no parallax, ongoing movement or opening reviews on click. Keep reveal wrappers inside the rotated figures so their resting angles are preserved.
 - `src/content/support.js`: three support chapters and optional replacement artwork paths.

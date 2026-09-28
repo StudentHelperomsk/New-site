@@ -6,6 +6,7 @@ import Header from '../components/Header'
 import Hero from '../components/Hero'
 import EstimateDialog from '../components/EstimateDialog'
 import StatsBar from '../components/StatsBar'
+import MobileOrderBar from '../components/MobileOrderBar'
 import ServicesSection from '../components/landing/ServicesSection'
 import ExamplesSection from '../components/landing/ExamplesSection'
 import ProcessSection from '../components/landing/ProcessSection'
@@ -50,6 +51,7 @@ export default function App({ path = typeof window === 'undefined' ? '/' : windo
       </main>
       <Footer />
     </div>
+    {!['legal', 'pay', 'not-found'].includes(page.type) && <MobileOrderBar home={home} onOrder={openEstimate} />}
     <EstimateDialog open={estimateOpen} onClose={() => setEstimateOpen(false)} description={description} onDescriptionChange={setDescription} />
   </>
 }

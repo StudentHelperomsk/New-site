@@ -5,7 +5,8 @@
 .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 9px 14px; background: #edf4ef; border: 1px solid #e4ede7; border-radius: 30px; color: #607268; font-size: .66rem; letter-spacing: 1.35px; font-weight: 650; }
 .eyebrow > span { width: 5px; height: 5px; background: var(--green); border-radius: 50%; }
 .hero h1 { font-size: clamp(2.45rem, 4.05vw, 3.9rem); font-weight: 800; line-height: 1.13; letter-spacing: -2.7px; margin: 28px 0 23px; }
-.hero h1 > span { color: var(--green); }
+.hero h1 em { color: var(--green); font-style: normal; }
+.hero-heading-mobile { display: none; }
 .hero-description { max-width: 530px; font-size: clamp(.95rem, 1.12vw, 1.07rem); line-height: 1.85; color: #717d75; margin: 0; letter-spacing: -.15px; }
 .benefits { display: flex; gap: 22px; padding: 0; margin: 34px 0 0; list-style: none; }
 .benefits li { display: flex; align-items: flex-start; gap: 9px; flex: 1; font-size: .78rem; line-height: 1.65; color: #58685d; }
