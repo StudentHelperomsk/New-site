@@ -58,7 +58,7 @@ export default function ProcessSection({ onOrder }) {
         {supportStory.map((scene, index) => <article className={`support-chapter${active === index ? ' is-active' : ''}`} id={`chapter-${scene.id}`} ref={element => { chapters.current[index] = element }} key={scene.id}>
           <div className="support-chapter-copy" data-reveal="copy">
             <span className="support-chapter-number">0{index + 1} <span>{scene.label}</span></span>
-            <h3>{scene.title}</h3>{scene.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}<div className="support-chapter-note">{index < 2 && <Check size={17} aria-hidden="true" />}<span>{scene.note}</span></div>
+            <h3>{scene.title}</h3>{scene.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}{scene.note && <div className="support-chapter-note"><Check size={17} aria-hidden="true" /><strong>{scene.note}</strong></div>}
             {index === 2 && <button type="button" className="text-action" onClick={() => onOrder()}>Оценить задание <ArrowRight size={18} /></button>}
           </div>
         </article>)}
