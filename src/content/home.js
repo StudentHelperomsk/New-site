@@ -10,6 +10,6 @@ export const benefits = ['Быстрая оценка задания', 'Бесп
 export const statistics = [
   { icon: 'users', value: '1 000+', label: 'выполненных работ' },
   { icon: 'cap', value: 'С 2020', label: 'помогаем студентам' },
-  { icon: 'star', value: 'Поэтапно', label: 'оплата по согласованию' },
+  { icon: 'star', value: '25%', label: 'обычная предоплата' },
   { icon: 'shield', value: 'Доработки', label: 'по исходному заданию' },
 ]
