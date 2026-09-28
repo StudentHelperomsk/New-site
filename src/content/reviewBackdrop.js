@@ -1,9 +1,9 @@
 // Additional original messages from studenthelper.ru. No repeated copies.
 // Fixed positions keep the heading clear and fill the gaps around the main reviews.
 export const reviewBackdrop = [
-  { image: 'review-01.webp', width: 337, height: 78, x: 3, y: 3, size: 160, tilt: -6, opacity: .60 },
-  { image: 'review-10.webp', width: 370, height: 81, x: 29, y: 2, size: 180, tilt: 4, opacity: .50 },
-  { image: 'review-23.webp', width: 618, height: 78, x: 4, y: 38, size: 285, tilt: -3, opacity: .52 },
+  { image: 'review-01.webp', width: 337, height: 78, x: 36, y: 3, size: 160, tilt: -6, opacity: .60 },
+  { image: 'review-10.webp', width: 370, height: 81, x: 65, y: 2, size: 180, tilt: 4, opacity: .50 },
+  { image: 'review-23.webp', width: 618, height: 78, x: 3, y: 43, size: 250, tilt: -3, opacity: .52 },
   { image: 'review-31.webp', width: 384, height: 82, x: 77, y: 38, size: 190, tilt: 5, opacity: .65 },
   { image: 'review-18.webp', width: 465, height: 78, x: 9, y: 69, size: 235, tilt: -5, opacity: .60 },
   { image: 'review-26.webp', width: 576, height: 84, x: 55, y: 91, size: 270, tilt: 3, opacity: .55 },
