@@ -43,13 +43,13 @@ export default function ProcessSection({ onOrder }) {
   }
 
   return <section className="support-story" id="process" ref={section} aria-labelledby="process-title">
-    <div className="support-heading"><span className="support-eyebrow" data-reveal="copy">НАШИ ГАРАНТИИ</span><h2 id="process-title"><span className="support-title-line" data-reveal="line">Бесплатные доработки</span><span className="support-title-line" data-reveal="line"><em>до полной сдачи</em></span></h2><p data-reveal="copy">Учитываем требования.<br />Исправляем замечания преподавателя.</p></div>
+    <div className="support-heading"><span className="support-eyebrow" data-reveal="copy">КАК МЫ РАБОТАЕМ</span><h2 id="process-title"><span className="support-title-line" data-reveal="line">От оценки задания</span><span className="support-title-line" data-reveal="line"><em>до полной сдачи</em></span></h2><p data-reveal="copy">Менеджер на связи на каждом этапе.<br />{' '}Статус работы — в боте сообщества.</p></div>
     <div className="support-layout">
       <div className="support-visual">
         <div className="support-visual-entrance" data-reveal="scene">
-          <div className="support-scene-label"><span>STUDENT HELPER / ПОДДЕРЖКА</span><span aria-hidden="true">0{active + 1} — 03</span></div>
+          <div className="support-scene-label"><span>STUDENT HELPER / ПОРЯДОК РАБОТЫ</span><span aria-hidden="true">0{active + 1} — 03</span></div>
           <SupportArtwork active={active} scenes={supportStory} />
-          <div className="support-switcher" aria-label="Этапы сопровождения">
+          <div className="support-switcher" aria-label="Этапы работы">
             {supportStory.map((scene, index) => <button key={scene.id} type="button" aria-pressed={active === index} aria-controls={`chapter-${scene.id}`} onClick={() => chooseChapter(index)}><span>0{index + 1}</span>{scene.label}</button>)}
           </div>
         </div>
@@ -58,7 +58,7 @@ export default function ProcessSection({ onOrder }) {
         {supportStory.map((scene, index) => <article className={`support-chapter${active === index ? ' is-active' : ''}`} id={`chapter-${scene.id}`} ref={element => { chapters.current[index] = element }} key={scene.id}>
           <div className="support-chapter-copy" data-reveal="copy">
             <span className="support-chapter-number">0{index + 1} <span>{scene.label}</span></span>
-            <h3>{scene.title}</h3><p>{scene.text}</p><div className="support-chapter-note">{index < 2 && <Check size={17} aria-hidden="true" />}<span>{scene.note}</span></div>
+            <h3>{scene.title}</h3>{scene.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}<div className="support-chapter-note">{index < 2 && <Check size={17} aria-hidden="true" />}<span>{scene.note}</span></div>
             {index === 2 && <button type="button" className="text-action" onClick={() => onOrder()}>Оценить задание <ArrowRight size={18} /></button>}
           </div>
         </article>)}

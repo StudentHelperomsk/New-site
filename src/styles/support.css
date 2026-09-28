@@ -23,6 +23,7 @@
 .support-chapter-number > span { color: #758679; font-weight: 500; }
 .support-chapter h3 { font-size: clamp(1.9rem, 3vw, 2.8rem); letter-spacing: -1.6px; line-height: 1.2; margin: 22px 0; font-weight: 700; max-width: 440px; }
 .support-chapter-copy > p { font-size: 1rem; line-height: 1.85; margin: 0; max-width: 430px; color: #64736a; }
+.support-chapter-copy > p + p { margin-top: 16px; }
 .support-chapter-note { display: flex; gap: 9px; align-items: flex-start; font-size: .81rem; color: #628471; line-height: 1.7; margin-top: 24px; max-width: 380px; }
 .support-chapter-note > svg { flex-shrink: 0; margin-top: 3px; }
 .support-chapter .text-action { align-self: flex-start; margin-top: 22px; }
