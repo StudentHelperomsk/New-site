@@ -3,7 +3,7 @@
 ## Scope
 The home page includes the approved hero, statistics, services and prices, work examples, process and assurances, reviews, FAQ, contact CTA and footer.
 On desktop, the header and hero occupy at least one browser viewport. Statistics begin below that first viewport. Use CSS viewport units rather than physical display resolution.
-The owner authorized continuing the landing page, the shared estimate dialog, animated artwork, and migration of all pages from studenthelper.ru. Preserve the approved homepage and white, green and black visual direction. Server-side order submission remains separate work.
+The owner authorized continuing the landing page, the shared estimate dialog with mobile drag-to-dismiss, animated artwork, and migration of all pages from studenthelper.ru. Preserve the approved homepage and white, green and black visual direction. Server-side order submission remains separate work.
 
 ## Structure
 - `src/app/App.jsx`: page composition.
@@ -24,7 +24,7 @@ The owner authorized continuing the landing page, the shared estimate dialog, an
 - `src/styles/estimate-dialog.css`: order dialog and backdrop.
 - `src/hooks/useScrollReveal.js` and `src/styles/reveal.css`: once-only entrances for statistics, support chapters and service/example headings. Use explicit `data-reveal` targets; never transform sticky containers or hide initially visible content.
 - `src/styles/landing.css`: new landing sections and their responsive styles.
-- `src/styles/mobile.css`: phone-specific compositions (up to 600px), imported last. Keep desktop styling in the existing section files. Mobile uses compact hero artwork, manually switched stages, horizontal service choices and portfolio, collapsible footer groups and an order bottom sheet.
+- `src/styles/mobile.css`: phone-specific compositions (up to 600px), imported last. Keep desktop styling in the existing section files. Mobile uses compact hero artwork, swipeable stages and all service cards with synchronized selectors, horizontal portfolio, collapsible footer groups and an order bottom sheet.
 - `src/components/MobileOrderBar.jsx`: the mobile order shortcut. It appears after the hero and hides around existing order controls, the footer and open dialogs; respect safe-area insets and keyboard focus.
 - `src/content/landing.js`: service prices, work examples, reviews, FAQ and manager URL.
 - `src/styles/reviews.css` and `src/content/reviewBackdrop.js`: fixed review collage, with smaller original messages behind the main reviews and clear space around the heading. The shared reveal hook adds a gentle, once-only entrance; no parallax, ongoing movement or opening reviews on click. Keep reveal wrappers inside the rotated figures so their resting angles are preserved.
@@ -55,3 +55,6 @@ The owner authorized continuing the landing page, the shared estimate dialog, an
 
 ## Assets
 SVGs come from the owner. Some contain embedded raster artwork: do not assume they are pure vectors. The coursework SVG viewBox was tightened to remove transparent export margins; the artwork is preserved.
+
+- Services and prices are one catalog at `/services/`; `/prices/` is a compatibility redirect. The owner removed the subscription offering. Do not restore it.
+- The approved support illustrations are external SVGs in `public/assets/support/`; preserve scene transitions.

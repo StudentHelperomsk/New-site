@@ -10,14 +10,16 @@ const template = await fs.readFile('dist/index.html', 'utf8')
 const escape = text => text.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
 for (const route of [...routes, '/404/']) {
   const { html, page } = render(route)
-  const noindex = page.type === 'pay' || page.type === 'not-found'
-  const head = `<link rel="canonical" href="https://studenthelper.ru${escape(route)}" /><meta name="robots" content="${noindex ? 'noindex, nofollow' : 'index, follow'}" /><meta property="og:title" content="${escape(page.seoTitle)}" /><meta property="og:description" content="${escape(page.description)}" /><meta property="og:type" content="website" /><meta property="og:url" content="https://studenthelper.ru${escape(route)}" />${page.type === 'pay' ? '<meta name="referrer" content="no-referrer" />' : ''}`
-  const document = template.replace(/<title>.*?<\/title>/, `<title>${escape(page.seoTitle)}</title>`).replace(/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${escape(page.description)}" />`).replace('</head>', `${head}</head>`).replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+  const noindex = page.type === 'pay' || page.type === 'not-found' || route === '/prices/'
+  const canonicalRoute = route === '/prices/' ? '/services/' : route
+  const redirect = route === '/prices/' ? `<meta http-equiv="refresh" content="0;url=${escape((process.env.SITE_BASE_PATH || '/') + 'services/')}" />` : ''
+  const head = `<link rel="canonical" href="https://studenthelper.ru${escape(canonicalRoute)}" /><meta name="robots" content="${noindex ? 'noindex, nofollow' : 'index, follow'}" /><meta property="og:title" content="${escape(page.seoTitle)}" /><meta property="og:description" content="${escape(page.description)}" /><meta property="og:type" content="website" /><meta property="og:url" content="https://studenthelper.ru${escape(canonicalRoute)}" />${page.type === 'pay' ? '<meta name="referrer" content="no-referrer" />' : ''}`
+  const document = template.replace(/<title>.*?<\/title>/, `<title>${escape(page.seoTitle)}</title>`).replace(/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${escape(page.description)}" />`).replace('</head>', `${head}${redirect}</head>`).replace('<div id="root"></div>', `<div id="root">${html}</div>`)
   const destination = route === '/404/' ? 'dist/404.html' : path.join('dist', route, 'index.html')
   await fs.mkdir(path.dirname(destination), { recursive: true })
   await fs.writeFile(destination, document)
 }
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.filter(route => !route.startsWith('/pay/')).map(route => `<url><loc>https://studenthelper.ru${route}</loc></url>`).join('')}</urlset>\n`
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.filter(route => !route.startsWith('/pay/') && route !== '/prices/').map(route => `<url><loc>https://studenthelper.ru${route}</loc></url>`).join('')}</urlset>\n`
 await fs.writeFile('dist/sitemap.xml', sitemap)
 await fs.writeFile('dist/robots.txt', 'User-agent: *\nDisallow: /pay/\nSitemap: https://studenthelper.ru/sitemap.xml\n')
 console.log(`Rendered ${routes.length} pages and 404.html with complete content.`)

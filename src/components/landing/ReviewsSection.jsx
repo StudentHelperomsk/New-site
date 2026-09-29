@@ -15,8 +15,11 @@ export default function ReviewsSection() {
     <div className="reviews-intro"><h2 id="reviews-title">Отзывы<br />{' '}<em>клиентов</em></h2></div>
     <div className="reviews-grid">{reviews.map((review, index) => <figure className="review-card" key={review.image}>
       <div data-reveal="review" style={{ '--reveal-delay': `${index * 90}ms` }}>
-        <img src={siteUrl(`/assets/reviews/${review.image}`)} alt={review.text} width={review.width} height={review.height} loading="lazy" />
-        <blockquote className="review-transcript">{review.text}</blockquote>
+        <img className="review-original" src={siteUrl(`/assets/reviews/${review.image}`)} alt={review.text} width={review.width} height={review.height} loading="lazy" />
+        <div className="review-mobile-message">
+          <span className="review-avatar" aria-hidden="true"><img src={siteUrl(`/assets/reviews/${review.image}`)} alt="" loading="lazy" style={{ width: review.width / 2, height: review.height / 2 }} /></span>
+          <blockquote className="review-transcript"><p>{review.text}</p><span className="review-message-time">{['14:37', '16:26', '1:06'][index]}</span></blockquote>
+        </div>
       </div>
     </figure>)}</div>
   </section>

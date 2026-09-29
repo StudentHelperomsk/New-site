@@ -6,7 +6,7 @@ The owner approved a calm illustration direction without people: a task being pi
 
 The support story follows the first screen and statistics. On viewports at least 901px wide and 650px tall, the illustration stays sticky while the three chapters scroll naturally. The nearest chapter controls the artwork; the stage buttons also navigate between chapters. There is no scroll interception or automatic looping.
 
-Smaller or shorter viewports show one chapter at a time with the same stage buttons. Reduced-motion preferences disable graphic transitions and smooth chapter navigation.
+Phones up to 600px use native horizontal scroll snap with the stage buttons synchronized to the current card. Smaller tablets or shorter desktop viewports show one chapter at a time with the same stage buttons. Reduced-motion preferences disable graphic transitions and smooth chapter navigation.
 
 The transition from the hero keeps the original spacing. Statistics enter with a 70ms stagger, the support heading enters by line, then the illustration and chapter text enter independently. Entrances start near the bottom edge of the viewport and run once. The illustration entrance wraps the sticky container's contents so sticky positioning is unaffected. Reduced motion, keyboard focus and printing make content visible immediately; content already in view on initial load is never hidden. The shared hook is `src/hooks/useScrollReveal.js`, with motion in `src/styles/reveal.css`.
 
@@ -14,11 +14,12 @@ Services remain selectable and prefill only an empty estimate draft. Reviews use
 
 ## Replacing the artwork
 
-- Working vector scenes: `src/components/landing/SupportArtwork.jsx`.
+- Vector scene files: `public/assets/support/agreement.svg`, `review.svg`, `delivery.svg`.
+- Scene renderer: `src/components/landing/SupportArtwork.jsx`.
 - Chapter text and optional artwork URLs: `src/content/support.js`.
 - Layout and motion: `src/styles/support.css`.
 
-For final illustrations, save three transparent SVGs under `public/assets/support/` and set each chapter's `artwork` to its public path. Until a path is set, the corresponding vector study renders. The 600 × 500 viewBox is the composition reference; keep meaningful artwork inside the edges, use a transparent background and leave captions out of the image.
+For final illustrations, save three transparent SVGs under `public/assets/support/` and set each chapter's `artwork` to its public path. The three approved vector studies are already stored there and connected through these paths. The 600 × 500 viewBox is the composition reference; keep meaningful artwork inside the edges, use a transparent background and leave captions out of the image.
 
 For animation within an illustration, keep the documents, messages, marks and backdrop as separately named SVG groups and integrate them into SupportArtwork. The URL replacement preserves transitions between complete scenes, but does not animate elements inside an external SVG.
 

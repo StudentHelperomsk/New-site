@@ -1,6 +1,23 @@
 /* Internal pages share the landing's palette, with editorial layouts for reading. */
 .page-main { display: block; padding: 26px 0 80px; }
 .page-main > * { min-width: 0; }
+.service-terms { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 65px; margin-top: 70px; align-items: start; }
+.service-terms .price-explanation { position: static; }
+.service-payment { padding: 32px; border-radius: 24px 58px 24px 24px; background: #e3f1e8; }
+.service-payment-amount { display: flex; align-items: center; gap: 18px; font-size: 4.2rem; font-weight: 650; letter-spacing: -3px; color: #00865b; margin: 23px 0; }
+.service-payment-amount > span { max-width: 120px; font-size: .8rem; font-weight: 500; line-height: 1.6; letter-spacing: 0; color: #537764; }
+.service-payment h2 { font-size: 1.5rem; font-weight: 650; line-height: 1.4; letter-spacing: -.6px; }
+.service-payment p { font-size: .91rem; line-height: 1.8; color: #567262; }
+.service-payment-note { display: flex; align-items: flex-start; gap: 9px; }
+.service-payment-note svg { flex-shrink: 0; margin-top: 4px; color: #00865b; }
+.service-payment .text-action { margin-top: 8px; }
+.faq-page-layout > *, .faq-page-aside, .page-questions { min-width: 0; }
+.page-questions summary, .page-questions .prose { overflow-wrap: anywhere; }
+@media (max-width: 760px) {
+  .service-terms { grid-template-columns: minmax(0, 1fr); gap: 30px; margin-top: 42px; }
+  .service-payment { padding: 25px; }
+  .service-payment-amount { font-size: 3.6rem; }
+}
 .site-nav [aria-current="page"] { color: var(--green-deep); }
 .breadcrumbs, .breadcrumbs > span { display: flex; align-items: center; gap: 9px; }
 .breadcrumbs { flex-wrap: wrap; margin: 0 0 46px; color: #7c8b82; font-size: .72rem; line-height: 1.6; }
@@ -95,12 +112,6 @@
 .price-explanation li { padding-left: 8px; margin-bottom: 22px; color: #839b8c; font-size: .8rem; }
 .price-explanation li strong { display: block; color: #3a5545; font-size: .91rem; margin-bottom: 7px; }
 .price-explanation li span { color: #79897f; line-height: 1.7; }
-.subscription-note { display: flex; justify-content: space-between; align-items: center; gap: 60px; margin-top: 70px; padding: 35px 0; border-top: 1px solid #dbe5de; border-bottom: 1px solid #dbe5de; }
-.subscription-note h2 { margin: 16px 0; font-size: 1.8rem; letter-spacing: -.8px; }
-.subscription-note p { max-width: 700px; color: #79897f; font-size: .9rem; line-height: 1.8; margin: 0; }
-.subscription-note > div:last-child { flex-shrink: 0; }
-.subscription-note strong { display: block; font-size: 2.3rem; font-weight: 650; letter-spacing: -1.5px; margin-bottom: 13px; }
-.subscription-note small { color: #79897f; font-size: .8rem; letter-spacing: 0; margin-left: 8px; font-weight: 400; }
 .payment-note { display: flex; align-items: center; gap: 20px; margin-top: 35px; color: var(--green-deep); }
 .payment-note > svg { flex-shrink: 0; }
 .payment-note p { flex: 1; margin: 0; color: #79897f; font-size: .82rem; line-height: 1.8; }
@@ -234,7 +245,6 @@
   .page-cta-actions { flex-direction: row; flex-wrap: wrap; gap: 25px; }
   .pricing-layout { grid-template-columns: 1fr; }
   .price-explanation ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
-  .subscription-note { gap: 30px; }
   .library-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .library-work-image { height: 280px; padding: 30px 35px 0; }
   .guide-feature { gap: 20px; padding: 30px; }
@@ -269,7 +279,7 @@
   .guarantee-page-art { max-width: 430px; margin: auto; width: 100%; }
   .guarantee-principles > article { grid-template-columns: 25px minmax(0, 1fr); gap: 10px 22px; }
   .guarantee-principles .prose { grid-column: 2; }
-  .faq-page-layout { grid-template-columns: 1fr; gap: 28px; }
+  .faq-page-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .faq-page-aside { position: static; }
   .faq-categories { flex-direction: row; flex-wrap: wrap; gap: 5px; margin-top: 15px; }
   .faq-page-aside .reading-help { display: none; }
@@ -311,8 +321,6 @@
   .price-row > strong { font-size: 1.05rem; }
   .price-row button { width: 34px; height: 34px; }
   .price-explanation ol { display: block; }
-  .subscription-note { flex-direction: column; align-items: flex-start; margin-top: 45px; }
-  .subscription-note strong { font-size: 2rem; }
   .payment-note { flex-wrap: wrap; gap: 12px; }
   .payment-note p { flex-basis: calc(100% - 40px); }
   .payment-note a { margin-left: 36px; }

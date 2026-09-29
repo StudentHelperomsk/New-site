@@ -8,7 +8,7 @@
 | Работы, названия, превью и пути к PDF | https://studenthelper.ru/examples/ |
 | Статистика, отзывы, этапы работы, Telegram | https://studenthelper.ru/ |
 | Условия оплаты и доработок | https://studenthelper.ru/guarantees/ |
-| Начальная стоимость и подписка | https://studenthelper.ru/prices/ |
+| Начальная стоимость (подписка удалена по решению владельца) | https://studenthelper.ru/prices/ |
 | Пять памяток | https://studenthelper.ru/guides/ |
 | Полные правовые тексты | `/privacy/`, `/consent/`, `/offer/`, `/requisites/` исходного сайта |
 | Контракт СБП и банковский SDK | https://studenthelper.ru/pay/sbp/ |

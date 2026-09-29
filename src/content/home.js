@@ -1,6 +1,5 @@
 export const navigation = [
   { label: 'Услуги', href: '/services/' },
-  { label: 'Стоимость', href: '/prices/' },
   { label: 'Гарантии', href: '/guarantees/' },
   { label: 'Примеры работ', href: '/examples/' },
   { label: 'Материалы', href: '/guides/' },

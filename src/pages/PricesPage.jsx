@@ -1,12 +1,11 @@
-import { siteUrl } from '../lib/siteUrl.js'
-import { ArrowRight, ArrowUpRight, Check } from 'lucide-react'
-import { catalog, formatPrice } from '../content/site'
-import { Breadcrumbs, PageCTA, PageIntro } from '../components/pages/PageParts'
+import { useEffect } from 'react'
+import { siteUrl } from '../lib/siteUrl'
+import ServicesPage from './ServicesPage'
 
+// Preserve old links while keeping one public service catalog.
 export default function PricesPage({ onOrder }) {
-  return <><Breadcrumbs items={[{ label: 'Стоимость' }]} /><PageIntro eyebrow="СТОИМОСТЬ" title={<>Стоимость<br /><em>учебных работ</em></>} description="Ниже указана начальная стоимость работ. Отправьте задание и требования преподавателя — мы рассчитаем точную стоимость и подтвердим срок." />
-    <div className="pricing-layout"><section className="price-list" aria-label="Начальная стоимость работ">{catalog.map(service => <div className="price-row" key={service.slug}><a href={siteUrl(service.path)}>{service.label}<ArrowUpRight size={15} /></a><strong>от {formatPrice(service.price)} ₽</strong><button type="button" onClick={() => onOrder(service.label)} aria-label={`Узнать стоимость: ${service.label}`}><ArrowRight size={20} /></button></div>)}</section>
-      <aside className="price-explanation"><span className="support-eyebrow">РАСЧЁТ СТОИМОСТИ</span><h2>От чего зависит цена</h2><ol><li><strong>Объём и сложность</strong><span>Количество разделов, расчёты, графика и специальные программы.</span></li><li><strong>Требования</strong><span>Методичка, оформление и исходные данные.</span></li><li><strong>Срок</strong><span>Точная дата готовности и промежуточные проверки.</span></li></ol><a className="text-action" href={siteUrl("/guides/ot-chego-zavisit-cena/")}>Подробнее о расчёте цены <ArrowUpRight size={16} /></a></aside></div>
-    <section className="subscription-note"><div><span className="support-eyebrow">ПОМОЩЬ В ТЕЧЕНИЕ МЕСЯЦА</span><h2>Подписка студенту</h2><p>Несколько заданий в течение месяца, приоритетная связь с менеджером и помощь по замечаниям преподавателя. Состав заданий и условия согласуем до начала работы.</p></div><div><strong>2 490 ₽<small>/ месяц</small></strong><button type="button" className="text-action" onClick={() => onOrder('Подписка студенту')}>Обсудить подписку <ArrowRight size={17} /></button></div></section>
-    <div className="payment-note"><Check size={24} /><p><strong>Обычно предоплата — 25%.</strong> Перед окончательной оплатой вы проверяете вариант в PDF с водяным знаком. После согласования результата и оплаты передаём работу без водяных знаков и все исходные файлы. Условия оплаты согласуем заранее. Правки по исходному заданию уже входят в стоимость.</p><a href={siteUrl("/guarantees/")}>Условия работы <ArrowUpRight size={16} /></a></div><PageCTA onOrder={onOrder} title="Узнайте стоимость вашей работы" /></>
+  useEffect(() => {
+    window.location.replace(siteUrl('/services/') + window.location.search + window.location.hash)
+  }, [])
+  return <ServicesPage onOrder={onOrder} />
 }

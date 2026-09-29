@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" fill="none">
+<path d="M173 399C92 322 123 184 221 97C305 23 440 20 515 84V318C410 340 284 442 173 399Z" fill="#DDF1E6" />
+          <path d="M158 112C40 165 34 322 145 389C272 466 464 417 528 333" stroke="#B8E3CE" stroke-width="24" stroke-linecap="round" />
+          <g transform="rotate(14 365 257)"><path d="M303 126H419L461 168V371H303Z" fill="#B8E3CE" /><path d="M320 136H413L451 174V352H320Z" fill="white" /><path d="M413 136V174H451" fill="#00A56C" /><path d="M345 229H414M345 257H414M345 285H390" stroke="#BBCBC1" stroke-width="9" stroke-linecap="round" /></g>
+          <g transform="rotate(-11 238 246)"><path d="M143 117H283L325 159V369H143Z" fill="white" /><path d="M283 117V159H325" fill="#B8E3CE" /><path d="M176 193H277M176 222H277M176 251H238" stroke="#1D3027" stroke-width="10" stroke-linecap="round" /></g>
+          <path d="M262 299L298 335L383 230" stroke="#00A56C" stroke-width="25" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M158 112C48 165 42 301 152 369C279 446 459 395 520 313" stroke="#00A56C" stroke-width="19" stroke-linecap="round" /><circle cx="520" cy="313" r="15" fill="#1D3027" />
+</svg>
