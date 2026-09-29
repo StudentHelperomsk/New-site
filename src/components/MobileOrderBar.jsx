@@ -1,3 +1,4 @@
+import { siteUrl } from '../lib/siteUrl.js'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight, Send } from 'lucide-react'
 import { managerUrl } from '../content/landing'
@@ -33,6 +34,6 @@ export default function MobileOrderBar({ onOrder, home }) {
   }, [home])
   return <div className="mobile-order-bar" ref={bar} hidden={!visible}>
     <button type="button" className="button button-dark" onClick={() => onOrder()} aria-haspopup="dialog">Оценить задание <ArrowUpRight size={18} /></button>
-    <a href={managerUrl} target="_blank" rel="noreferrer" aria-label="Написать менеджеру в Telegram"><Send size={21} /></a>
+    <a href={siteUrl(managerUrl)} target="_blank" rel="noreferrer" aria-label="Написать менеджеру в Telegram"><Send size={21} /></a>
   </div>
 }

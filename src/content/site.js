@@ -1,4 +1,5 @@
 import source from './site.json'
+import { routePath } from '../lib/siteUrl'
 
 export const catalog = source.services
 export const library = source.examples
@@ -9,7 +10,7 @@ export const fullQuestions = source.questions.map((item, index) => ({ ...item, g
 export const siteRoutes = source.routes
 export const formatPrice = value => new Intl.NumberFormat('ru-RU').format(value)
 export const normalizePath = path => {
-  const clean = path.split(/[?#]/)[0].replace(/\/index\.html$/, '/').replace(/\/+$/, '')
+  const clean = routePath(path).split(/[?#]/)[0].replace(/\/index\.html$/, '/').replace(/\/+$/, '')
   return clean ? `${clean}/` : '/'
 }
 export function resolvePage(path) {

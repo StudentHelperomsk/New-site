@@ -1,3 +1,4 @@
+import { siteUrl } from '../../lib/siteUrl.js'
 import { useState } from 'react'
 import { ArrowUpRight, ArrowRight, MessagesSquare } from 'lucide-react'
 import { services } from '../../content/landing'
@@ -16,7 +17,7 @@ export default function ServicesSection({ onSelect }) {
   const direction = directions[active]
   const service = services[direction.index]
   return <section className="landing-section services-section" id="services" aria-labelledby="services-title">
-    <SectionHeading id="services-title" eyebrow="УСЛУГИ И ЦЕНЫ" title={<>С чем мы<br /><em>можем помочь</em></>} description="Основные виды работ и начальные цены. Комплексные и нестандартные задания оцениваем отдельно."><a className="text-action" href="/services/">Все услуги <ArrowUpRight size={16} /></a></SectionHeading>
+    <SectionHeading id="services-title" eyebrow="УСЛУГИ И ЦЕНЫ" title={<>С чем мы<br /><em>можем помочь</em></>} description="Основные виды работ и начальные цены. Комплексные и нестандартные задания оцениваем отдельно."><a className="text-action" href={siteUrl("/services/")}>Все услуги <ArrowUpRight size={16} /></a></SectionHeading>
     <div className="service-explorer">
       <div className="service-choices" data-reveal="copy">
         <div className="service-list" aria-label="Выберите направление">
@@ -29,10 +30,10 @@ export default function ServicesSection({ onSelect }) {
       <div className="service-stage" id="service-detail" aria-live="polite" data-reveal="scene">
         <div className="service-stage-top"><span>{direction.caption}</span><span>0{active + 1} / 04</span></div>
         <div className="service-detail-content" key={service.icon}>
-          <img className="service-detail-mark" src={`/assets/${direction.artwork}.svg`} alt="" width="76" height="76" />
+          <img className="service-detail-mark" src={siteUrl(`/assets/${direction.artwork}.svg`)} alt="" width="76" height="76" />
           <h3>{service.title}</h3>
           <p className="service-detail-description">{service.description}</p>
-          <a className="service-details-link" href={catalog[direction.index].path}>Подробнее об услуге <ArrowUpRight size={15} /></a>
+          <a className="service-details-link" href={siteUrl(catalog[direction.index].path)}>Подробнее об услуге <ArrowUpRight size={15} /></a>
         </div>
         <div className="service-stage-bottom"><span><small>Стоимость работы</small><strong>от {service.price} ₽</strong></span><button type="button" className="button button-dark" onClick={() => onSelect(service.title)}>Оценить <ArrowUpRight size={19} aria-hidden="true" /></button></div>
       </div>

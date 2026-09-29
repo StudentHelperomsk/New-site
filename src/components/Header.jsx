@@ -1,3 +1,4 @@
+import { siteUrl } from '../lib/siteUrl.js'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { navigation } from '../content/home'
@@ -32,14 +33,14 @@ export default function Header({ onOrder, path = '/' }) {
 
   const order = () => { if (menuOpen) toggle.current.focus(); setMenuOpen(false); onOrder() }
   return <header ref={header} className={`site-header${scrolled || menuOpen ? ' is-scrolled' : ''}${menuOpen ? ' is-menu-open' : ''}`} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setMenuOpen(false) }}>
-    <a className="brand" href={path === '/' ? '#top' : '/'} aria-label="Student Helper — главная">
-      <img src="/assets/logo.svg" alt="" width="49" height="32" />
+    <a className="brand" href={siteUrl(path === '/' ? '#top' : '/')} aria-label="Student Helper — главная">
+      <img src={siteUrl("/assets/logo.svg")} alt="" width="49" height="32" />
       <span>Student <strong>Helper</strong></span>
     </a>
     <button ref={toggle} className="menu-toggle" aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'} aria-expanded={menuOpen} aria-controls="main-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>
     <nav className={`site-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Основная навигация" id="main-nav">
-      {navigation.map(item => <a key={item.href} className="nav-item" href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined} onClick={() => setMenuOpen(false)}>{item.label}</a>)}
-      <div className="nav-mobile-actions"><button className="button button-dark" aria-haspopup="dialog" onClick={order}>Заказать работу <ArrowUpRight size={18} /></button><a className="text-action" href={managerUrl} target="_blank" rel="noreferrer">Написать в Telegram <ArrowUpRight size={16} /></a></div>
+      {navigation.map(item => <a key={item.href} className="nav-item" href={siteUrl(item.href)} aria-current={path.startsWith(item.href) ? 'page' : undefined} onClick={() => setMenuOpen(false)}>{item.label}</a>)}
+      <div className="nav-mobile-actions"><button className="button button-dark" aria-haspopup="dialog" onClick={order}>Заказать работу <ArrowUpRight size={18} /></button><a className="text-action" href={siteUrl(managerUrl)} target="_blank" rel="noreferrer">Написать в Telegram <ArrowUpRight size={16} /></a></div>
     </nav>
     <button className="button button-dark header-order" aria-haspopup="dialog" onClick={() => { setMenuOpen(false); onOrder() }}>Заказать работу</button>
   </header>

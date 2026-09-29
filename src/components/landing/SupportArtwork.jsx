@@ -1,9 +1,10 @@
+import { siteUrl } from '../../lib/siteUrl.js'
 // Replace each scene with final artwork through supportStory[].artwork.
 // These flat vector studies use the brand palette and stay editable in code.
 export default function SupportArtwork({ active, scenes }) {
   return <div className="support-artwork" data-stage={active} aria-hidden="true">
     {scenes.map((scene, index) => <div className={`support-art-scene${active === index ? ' is-active' : ''}`} key={scene.id}>
-      {scene.artwork ? <img src={scene.artwork} alt="" width="600" height="500" /> : <svg viewBox="0 0 600 500" fill="none">
+      {scene.artwork ? <img src={siteUrl(scene.artwork)} alt="" width="600" height="500" /> : <svg viewBox="0 0 600 500" fill="none">
         {index === 0 && <>
           <path d="M48 341V177C48 61 156 30 244 83L466 216V425H149C93 425 48 395 48 341Z" fill="#DDF1E6" />
           <path d="M76 292C70 208 144 160 266 182C384 203 493 244 504 324L479 408L84 397Z" fill="#008657" />

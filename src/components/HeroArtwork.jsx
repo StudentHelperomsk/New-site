@@ -1,3 +1,4 @@
+import { siteUrl } from '../lib/siteUrl.js'
 import { useEffect, useRef } from 'react'
 
 export default function HeroArtwork() {
@@ -51,11 +52,11 @@ export default function HeroArtwork() {
     <div className="art-scene">
       <div className="art-inner" />
       <div className="art-orbit"><span /></div>
-      <div className="art-main"><img src="/assets/coursework.svg" alt="" width="330" height="330" /></div>
-      <div className="art-bubble bubble-analytics"><img src="/assets/analytics.svg" alt="" width="90" height="90" /></div>
-      <div className="art-bubble bubble-flask"><img src="/assets/flask.svg" alt="" width="90" height="90" /></div>
-      <div className="art-bubble bubble-diploma"><img src="/assets/diploma.svg" alt="" width="90" height="90" /></div>
-      <div className="art-bubble bubble-presentation"><img src="/assets/presentation.svg" alt="" width="90" height="90" /></div>
+      <div className="art-main"><img src={siteUrl("/assets/coursework.svg")} alt="" width="330" height="330" /></div>
+      <div className="art-bubble bubble-analytics"><img src={siteUrl("/assets/analytics.svg")} alt="" width="90" height="90" /></div>
+      <div className="art-bubble bubble-flask"><img src={siteUrl("/assets/flask.svg")} alt="" width="90" height="90" /></div>
+      <div className="art-bubble bubble-diploma"><img src={siteUrl("/assets/diploma.svg")} alt="" width="90" height="90" /></div>
+      <div className="art-bubble bubble-presentation"><img src={siteUrl("/assets/presentation.svg")} alt="" width="90" height="90" /></div>
       <span className="spark spark-one">+</span><span className="spark spark-two">+</span>
       <span className="ring ring-one" /><span className="ring ring-two" />
     </div>

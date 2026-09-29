@@ -1,3 +1,4 @@
+import { siteUrl } from '../lib/siteUrl.js'
 import { useEffect, useRef, useState } from 'react'
 import { resolvePage } from '../content/site'
 import SitePage from '../pages/SitePage'
@@ -32,7 +33,7 @@ export default function App({ path = typeof window === 'undefined' ? '/' : windo
     setEstimateOpen(true)
   }
   return <>
-    <a className="skip-link" href="#main">Перейти к содержанию</a>
+    <a className="skip-link" href={siteUrl("#main")}>Перейти к содержанию</a>
     <div className="page-shell" id="top">
       <Header onOrder={openEstimate} path={page.path} />
       <main id="main" ref={content} className={home ? 'home-main' : 'page-main'}>

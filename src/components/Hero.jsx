@@ -1,3 +1,4 @@
+import { siteUrl } from '../lib/siteUrl.js'
 import { ArrowRight, Check } from 'lucide-react'
 import { benefits } from '../content/home'
 import HeroArtwork from './HeroArtwork'
@@ -11,7 +12,7 @@ export default function Hero({ onOrder }) {
       <ul className="benefits">{benefits.map(text => <li key={text}><span className="check-icon"><Check size={17} strokeWidth={2.5} /></span><span>{text}</span></li>)}</ul>
       <div className="hero-actions">
         <button className="button button-dark hero-order" aria-haspopup="dialog" onClick={onOrder}>Заказать работу <ArrowRight size={19} /></button>
-        <a className="learn-more" href="#statistics">Узнать больше <span><ArrowRight size={14} /></span></a>
+        <a className="learn-more" href={siteUrl("#statistics")}>Узнать больше <span><ArrowRight size={14} /></span></a>
       </div>
     </div>
     <HeroArtwork />

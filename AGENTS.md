@@ -39,6 +39,7 @@ The owner authorized continuing the landing page, the shared estimate dialog, an
 - Put screenshots, scripts, source archives and all disposable work in `operation/` (gitignored).
 - Keep `operation/` excluded from Vite's file watcher: diagnostics may hold files open on Windows. For a requested same-network phone preview, use `npm run dev:lan`; the default dev command stays on localhost.
 - Keep production files outside operation. Never commit credentials, .env files, node_modules or build output.
+- GitHub Pages publishes built `dist` through `.github/workflows/pages.yml` on main pushes. `SITE_BASE_PATH` configures project hosting; use `src/lib/siteUrl.js` for internal links, asset paths and imported HTML. Root-domain and local builds default to `/`.
 - Use the existing React/Vite stack. Do not add a UI framework without a concrete need.
 - Keep the first screen comfortable at 1440×900 and 1366×768; allow natural scrolling on small screens and at text enlargement. Never hide overflow to conceal clipped content.
 - Preserve keyboard navigation, visible focus, labels, native validation and reduced-motion behavior.
