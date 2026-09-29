@@ -37,6 +37,7 @@ The owner authorized continuing the landing page, the shared estimate dialog, an
 ## Working rules
 - Match the original studenthelper.ru voice: direct descriptions of work, requirements, price, deadlines and revisions. Prefer the owner's source wording over new slogans. Avoid abstract emotional copy such as "Спросить — это нормально", "За каждой работой — чья-то задача", "Мы рядом" or "Немного ясности". Warmth should come from concrete service commitments, not metaphors or motivational phrases.
 - Put screenshots, scripts, source archives and all disposable work in `operation/` (gitignored).
+- Keep `operation/` excluded from Vite's file watcher: diagnostics may hold files open on Windows. For a requested same-network phone preview, use `npm run dev:lan`; the default dev command stays on localhost.
 - Keep production files outside operation. Never commit credentials, .env files, node_modules or build output.
 - Use the existing React/Vite stack. Do not add a UI framework without a concrete need.
 - Keep the first screen comfortable at 1440×900 and 1366×768; allow natural scrolling on small screens and at text enlargement. Never hide overflow to conceal clipped content.
